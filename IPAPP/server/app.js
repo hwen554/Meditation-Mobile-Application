@@ -44,6 +44,15 @@ app.post('/send',(req,res)=>{
     
 })
 
+app.get('/',(req,res)=>{
+    User.find({}).then(data=>{
+        res.send(data)
+    }).catch(error=>{
+        console.log('Oh there is an error!',error)
+    })
+})
+
+
 app.post('/send-data',(req,res)=>{
     //console.log(req.body)
     const user = new User({
@@ -63,6 +72,34 @@ app.post('/send-data',(req,res)=>{
         console.log("Ooops, failed to posted!",err)
     })
     
+})
+
+app.post('/delete',(req,res)=>{
+    User.findByIdAndRemove(req.body.id)
+    .then(data=>{
+        console.log(data)
+        res.send('delete successfully!')
+    })
+    .catch(error=>{
+        console.log('Oooops failed to delete!',error)
+    })
+})
+
+app.post('/update',(req,res)=>{
+    User.findByIdAndUpdate(req.body.id,{
+        name:req.body.name,
+        email:req.body.email,
+        password:req.body.password,
+        phone:req.body.phone,
+        major:req.body.major,
+        avatar:req.body.avatar,
+        gender:req.body.gender
+    }).then(data=>{
+        console.log(data)
+        res.send('update successfully!')
+    }).catch(error=>{
+        console.log('Oooops failed to update!',error)
+    })
 })
 app.listen(3000,()=>{
     console.log('server is running')
