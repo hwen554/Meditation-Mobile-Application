@@ -1,11 +1,20 @@
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, View, TouchableOpacity} from 'react-native'
 import React, {useEffect,useState} from 'react'
-
+import {auth} from '../firebase'
 
 const LoginScreens = () => {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
 
+    useEffect(() => {
+      const unsubscribe = auth.onAuthStateChanged(user => {
+        if (user) {
+          navigation.replace("Home")
+        }
+      })
+  
+      return unsubscribe
+    }, [])
     const handleSignUp=()=>{
         console.log(email)
         console.log(password)
