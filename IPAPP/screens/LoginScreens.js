@@ -1,43 +1,39 @@
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, View, TouchableOpacity} from 'react-native'
 import React, {useEffect,useState} from 'react'
-import {auth} from '../firebase'
+import  {auth} from '../firebase'
 
 const LoginScreens = () => {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
 
-    useEffect(() => {
-      const unsubscribe = auth.onAuthStateChanged(user => {
-        if (user) {
-          navigation.replace("Home")
-        }
-      })
+    // useEffect(() => {
+    //   const unsubscribe = auth.onAuthStateChanged(user => {
+    //     if (user) {
+    //       navigation.replace("Home")
+    //     }
+    //   })
   
-      return unsubscribe
-    }, [])
-    const handleSignUp=()=>{
-        console.log(email)
-        console.log(password)
-        auth.createUserWithEmialAndPassword((email,password)).then(userCredentials =>{
-            const user = userCredentials.user;
-            console.log('Registered with: ',user.email);
-        }).catch(error=>{
-            console.log('Oops! Something went wrong: ',error);
-            alert(error.message);
+    //   return unsubscribe
+    // }, [])
+    const handleSignUp = () => {
+      auth
+        .createUserWithEmailAndPassword(email, password)
+        .then(userCredentials => {
+          const user = userCredentials.user;
+          console.log('Registered with:', user.email);
         })
+        .catch(error => alert(error.message))
     }
 
     const handleLogin=()=>{
-        console.log(email)
-        console.log(password)
-        auth.signInWithEmailAndPassword((email,password)).then(userCredentials =>{
-            const user = userCredentials.user;
-            console.log('Logged in with: ',user.email);
-        }).catch(error=>{
-            console.log('Oops! Something went wrong: ',error);
-            alert(error.message);
-        })
-    }
+      auth
+      .signInWithEmailAndPassword(email, password)
+      .then(userCredentials => {
+        const user = userCredentials.user;
+        console.log('Logged in with:', user.email);
+      })
+      .catch(error => alert(error.message))
+  }
     return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
         <View style={styles.inputContainer}>
