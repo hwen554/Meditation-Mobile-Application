@@ -1,20 +1,21 @@
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, View, TouchableOpacity} from 'react-native'
 import React, {useEffect,useState} from 'react'
 import  {auth} from '../firebase'
-
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { useNavigation } from '@react-navigation/core'
 const LoginScreens = () => {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
-
-    // useEffect(() => {
-    //   const unsubscribe = auth.onAuthStateChanged(user => {
-    //     if (user) {
-    //       navigation.replace("Home")
-    //     }
-    //   })
+    const navigation = useNavigation()
+    useEffect(() => {
+      const unsubscribe = auth.onAuthStateChanged(user => {
+        if (user) {
+          navigation.replace("Home")
+        }
+      })
   
-    //   return unsubscribe
-    // }, [])
+      return unsubscribe
+    }, [])
     const handleSignUp = () => {
       auth
         .createUserWithEmailAndPassword(email, password)
