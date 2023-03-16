@@ -3,6 +3,8 @@ import React, {useEffect,useState} from 'react'
 import  {auth} from '../firebase'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useNavigation } from '@react-navigation/core'
+import { Button, ThemeProvider } from '@rneui/themed';
+
 const LoginScreens = () => {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
@@ -44,6 +46,9 @@ const LoginScreens = () => {
         <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button} onPress={handleLogin}><Text style={styles.buttonText}>Login</Text></TouchableOpacity>
             <TouchableOpacity style={[styles.button,styles.buttonOutline]} onPress={handleSignUp}><Text style={styles.buttonOutlineText}>Register</Text></TouchableOpacity>
+            <ThemeProvider>
+              <Button title="Hey!" />
+            </ThemeProvider>
         </View>
     </KeyboardAvoidingView>
   )
