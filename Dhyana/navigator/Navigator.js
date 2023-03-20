@@ -14,7 +14,7 @@ import {COLORS} from '../constants';
 const Stack = createStackNavigator();
 const StackNavigator = () => {
   return (
-    <Stack.Navigator initialRouteName={'ExercisesHomeScreen'} headerMode="none">
+    <Stack.Navigator initialRouteName={'ExercisesHomeScreen'} screenOptions={{ headerShown: false }}>
       <Stack.Screen name="ExercisesHomeScreen" component={ExerciseHomeScreen} />
       <Stack.Screen
         name="ExerciseDetailsScreen"
@@ -54,9 +54,9 @@ const BottomTabNavigator = () => {
         },
         tabBarLabel: ({focused}) => {
           const labels = {
-            Schedule: 'Today',
-            AllExercises: 'All Exercises',
-            Settings: 'Settings',
+            Schedule: 'Main',
+            AllExercises: 'Search',
+            Settings: 'Profilo',
           };
 
           return (
