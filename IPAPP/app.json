@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "IPAPP",
-    "slug": "ipapp",
+    "slug": "test",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -28,9 +28,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": "37944852-a38d-4f7b-8770-563c1e06e202"
+        "projectId": "e11b8a0d-f880-4f0d-a7d7-8f482e53b938"
       }
     },
-    "owner": "gavinstrike"
+    "owner": "hwen554"
   }
 }
