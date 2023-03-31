@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text,Dimensions,SafeAreaView,StyleSheet} from 'react-native';
+import {View, Text,Dimensions,SafeAreaView,StyleSheet, TouchableOpacity} from 'react-native';
 import Iconicons from 'react-native-vector-icons/Ionicons';
 
 const Dev_width = Dimensions.get('window').width;
@@ -16,6 +16,13 @@ const ScheduleScreen = () => {
         <Text>Music Screen</Text>
         <Iconicons name='heart-outline' size={30}/>
       </View>
+      <View sytyle={style.bottomContainer}>
+        <View style={style.bottomIconWrapper}>
+          <TouchableOpacity onPress={()=>{}}>
+            <Iconicons name='heart-outline' size={30}/>
+          </TouchableOpacity>
+        </View>
+      </View>
     </SafeAreaView>
   );
 };
@@ -29,6 +36,9 @@ const style = StyleSheet.create({
       flex:1,
       alignItems:'center',
       justifyContent:'center'
+    },
+    bottomContainer:{
+      flex:1
     }
 })
 
