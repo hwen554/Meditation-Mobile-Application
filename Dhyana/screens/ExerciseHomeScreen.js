@@ -9,6 +9,7 @@ import {
   TouchableOpacity
 } from 'react-native'
 import React from 'react'
+import { ViewPropTypes } from 'deprecated-react-native-prop-types'
 import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
 import {COLORS, SIZES} from '../constants';
 let exercise = [
