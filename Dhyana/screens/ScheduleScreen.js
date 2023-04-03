@@ -1,28 +1,86 @@
 import React from 'react';
-import {View, Text,Dimensions,SafeAreaView,StyleSheet, TouchableOpacity} from 'react-native';
-import Iconicons from 'react-native-vector-icons/Ionicons';
+import {View, Text,Dimensions,SafeAreaView,StyleSheet, TouchableOpacity, Image,Animated,FlatList} from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Slider from '@react-native-community/slider';
+const {width,height} = Dimensions.get('window');
 
-const Dev_width = Dimensions.get('window').width;
-const Dev_height = Dimensions.get('window').height;
 
-import {AntDesign, Entypo, Feather} from 'react-native-vector-icons';
-import Slider from '@react-native-community/slider'
-import ProgressCircle from 'react-native-progress-circle'
 
 const ScheduleScreen = () => {
   return (
     <SafeAreaView style={style.container}>
       <View style={style.maincontainer}>
-        <Text>Music Screen</Text>
-        <Iconicons name='heart-outline' size={30}/>
-      </View>
-      <View sytyle={style.bottomContainer}>
-        <View style={style.bottomIconWrapper}>
+        {/* image */}
+        <View style={[style.imageWrapper, style.elevation]}>
+          <Image
+            source={require('../assets/Images/img1.jpeg')}
+            style={style.musicImage}
+          />
+        </View>
+
+        <View>
+          <Text style={[style.songContent,style.songName]}>Back at once</Text>
+
+        </View>
+
+        {/* slider */}
+        <View>
+            <Slider 
+              style={style.progressBar}
+                value={10}
+                minimumValue={0}
+                maximumvalue={100}
+                thumbTintColor='#FFD369'
+                minimumTrackTintColor='#FFD369'
+                maximumTrackTintColor='#fff'
+                onSlidingComplete={()=>{}}
+            />
+          {/* music progress durations*/}
+            <View style = {style.progressLevelDuration}>
+                <Text style={style.progressLabelText}>00:00</Text>
+                <Text style={style.progressLabelText}>00:00</Text>
+            </View>
+        </View>
+
+        <View style={style.musicControlsContainer}>
           <TouchableOpacity onPress={()=>{}}>
-            <Iconicons name='heart-outline' size={30}/>
+              <Ionicons name='play-skip-back-outline' size={35} color='yellow' />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={()=>{}}>
+              <Ionicons name='ios-pause-circle' size={75} color='yellow' />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={()=>{}}>
+              <Ionicons name='play-skip-forward-outline' size={35} color='yellow' />
           </TouchableOpacity>
         </View>
       </View>
+
+      
+      
+
+      <View style={style.bottomContainer}>
+        <View style={style.bottomIconWrapper}>
+          <TouchableOpacity onPress={()=>{}}>
+            <Ionicons name='heart-outline' size={30} color='#888888' />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={()=>{}}>
+            <Ionicons name='heart-outline' size={30} color='#888888' />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={()=>{}}>
+            <Ionicons name='heart-outline' size={30} color='#888888' />
+          </TouchableOpacity>
+
+
+        </View>
+      </View>
+
+      
+
+
     </SafeAreaView>
   );
 };
@@ -30,7 +88,7 @@ const ScheduleScreen = () => {
 const style = StyleSheet.create({
     container:{
       flex:1,
-      backgroundColor:'#555',
+      backgroundColor:'#222831',
     },
     maincontainer:{
       flex:1,
@@ -38,7 +96,72 @@ const style = StyleSheet.create({
       justifyContent:'center'
     },
     bottomContainer:{
-      flex:1
+      
+      borderTopColor: '#393E46',
+      borderWidth: 1,
+      width: width,
+      alignItems: 'center',
+      paddingVertical: 15,
+    },
+    bottomIconContainer:{
+      flexDirection:'row',
+      justifyContent:'space-between',
+      width:'80%'
+    },
+    bottomIconWrapper:{
+      flexDirection:'row',
+      justifyContent:'space-between',
+      width:'80%'
+    },
+    musicImage: {
+      width: '100%',
+      height: '100%',
+      borderRadius: 15,
+    },
+    imageWrapper:{
+      width:300,
+      height:300,
+      marginBottom:25,
+    },
+    elevation:{
+      elevation:5,
+      shadowColor:'#ccc',
+      shadowOffset:{
+        width:5,
+        height:5
+      },
+      shadowOpacity:0.5,
+      shadowRadius:3.84,
+    },
+    songName:{
+      fontSize:18,
+      fontWeight:600
+    },
+    songContent:{
+      textAlign:'center',
+      color:'#EEEEEE'
+    },
+    progressBar:{
+      width:350,
+      height:40,
+      marginTop:25,
+      flexDirection:'row'
+    },
+    progressLevelDuration:{
+      width:'340',
+      flexDirection:'row',
+      justifyContent:'space-between'
+    },
+    progressLabelText:{
+      color:'#FFF',
+      fontWeight:'500'
+    },
+    musicControlsContainer:{
+      flexDirection:'row',
+      alignItems:'center',
+      justifyContent:'space-between',
+      width:'60%',
+      marginTop:15
     }
 })
 
