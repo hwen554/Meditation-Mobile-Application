@@ -9,9 +9,10 @@ import {
   TouchableOpacity
 } from 'react-native'
 import React from 'react'
+import { ViewPropTypes } from 'deprecated-react-native-prop-types'
 import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
 import {COLORS, SIZES} from '../constants';
-let exercises = [
+let exercise = [
   {
     title: 'Breathing',
     image: require('../assets/Images/Exercise1.png'),
@@ -19,32 +20,58 @@ let exercises = [
       'Live happier and healthier by learning the fundamentals of diet recommendation',
     duration: '5-20 MIN Course',
   },
+  // {
+  //   title:'Mindfulness',
+  //   image: require('../assets/Images/Exercise2.png'),
+  //   subTitle:'Live happier and healthier by learning the fundamentals of Yoga',
+  //   duration: '5-20 MIN Course',
+  // },
+  // {
+  //   title:'Taichi',
+  //   image: require('../assets/Images/Exercise3.png'),
+  //   subTitle:'Live happier and healthier by learning the fundamentals of diet recommendation',
+  //   duration: '5-20 MIN Course',
+  // },
+  // {
+  //   title:'Music',
+  //   image: require('../assets/Images/Exercise4.png'),
+  //   subTitle:'Live happier and healthier by learning the fundamentals of diet recommendation',
+  //   duration: '5-20 MIN Course',
+  // }
+]
+ let exercise1 =[
   {
     title:'Mindfulness',
     image: require('../assets/Images/Exercise2.png'),
     subTitle:'Live happier and healthier by learning the fundamentals of Yoga',
     duration: '5-20 MIN Course',
   },
+ ]
+ let exercise2 =[
   {
     title:'Taichi',
     image: require('../assets/Images/Exercise3.png'),
     subTitle:'Live happier and healthier by learning the fundamentals of diet recommendation',
     duration: '5-20 MIN Course',
   },
+ ]
+
+ let exercise3=[
   {
     title:'Music',
     image: require('../assets/Images/Exercise4.png'),
     subTitle:'Live happier and healthier by learning the fundamentals of diet recommendation',
     duration: '5-20 MIN Course',
   }
-]
+ ]
 
 const ExerciseHomeScreen = ({navigation}) => {
+
   const ExerciseItem = ({exercise}) => {
     return (
       <TouchableOpacity
         onPress={() =>
-          navigation.navigate('ExerciseDetailsScreen', {exercise: exercise})
+          navigation.navigate('ExerciseDetailsScreen','ScheduleScreen', {exercise: exercise})
         }
         activeOpacity={0.8}
         style={{
@@ -71,6 +98,105 @@ const ExerciseHomeScreen = ({navigation}) => {
       </TouchableOpacity>
     );
   };
+
+  const ExerciseItem1 = ({exercise1}) => {
+    return (
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate('ScheduleScreen', {exercise1: exercise1})
+        }
+        activeOpacity={0.8}
+        style={{
+          backgroundColor: COLORS.white,
+          width: 0.5 * SIZES.width - 35,
+          margin: 10,
+          height: 180,
+          borderRadius: 10,
+          padding: 15,
+          shadowColor: '#9e9898',
+          elevation: 5,
+        }}>
+        <Image
+          source={exercise1.image}
+          style={{
+            width: '100%',
+            resizeMode: 'cover',
+            flex: 1,
+          }}
+        />
+        <Text style={{marginTop: 20, textAlign: 'center', fontSize: 16}}>
+          {exercise1.title}
+        </Text>
+      </TouchableOpacity>
+    );
+  };
+  const ExerciseItem2 = ({exercise2}) => {
+    return (
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate('ScheduleScreen', {exercise2: exercise2})
+        }
+        activeOpacity={0.8}
+        style={{
+          backgroundColor: COLORS.white,
+          width: 0.5 * SIZES.width - 35,
+          margin: 10,
+          height: 180,
+          borderRadius: 10,
+          padding: 15,
+          shadowColor: '#9e9898',
+          elevation: 5,
+        }}>
+        <Image
+          source={exercise2.image}
+          style={{
+            width: '100%',
+            resizeMode: 'cover',
+            flex: 1,
+          }}
+        />
+        <Text style={{marginTop: 20, textAlign: 'center', fontSize: 16}}>
+          {exercise2.title}
+        </Text>
+      </TouchableOpacity>
+    );
+  };
+  const ExerciseItem3 = ({exercise3}) => {
+    return (
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate('ScheduleScreen', {exercise3: exercise3})
+        }
+        activeOpacity={0.8}
+        style={{
+          backgroundColor: COLORS.white,
+          width: 0.5 * SIZES.width - 35,
+          margin: 10,
+          height: 180,
+          borderRadius: 10,
+          padding: 15,
+          shadowColor: '#9e9898',
+          elevation: 5,
+        }}>
+        <Image
+          source={exercise3.image}
+          style={{
+            width: '100%',
+            resizeMode: 'cover',
+            flex: 1,
+          }}
+        />
+        <Text style={{marginTop: 20, textAlign: 'center', fontSize: 16}}>
+          {exercise3.title}
+        </Text>
+      </TouchableOpacity>
+    );
+  };
+
+
+
+
+
   return (
     <SafeAreaView style={{flex: 1, position: 'relative'}}>
       <StatusBar
@@ -81,7 +207,7 @@ const ExerciseHomeScreen = ({navigation}) => {
       <View
         style={{
           width: '100%',
-          height: 0.45 * SIZES.height,
+          height: 0.41 * SIZES.height,
           padding: 30,
           backgroundColor: COLORS.accent + '20',
           position: 'relative',
@@ -161,10 +287,11 @@ const ExerciseHomeScreen = ({navigation}) => {
       </View>
 
       <FlatList
-        data={exercises}
+        data={exercise}
         style={{
           paddingHorizontal: 20,
-          marginTop: -60,
+          marginTop: -50,
+          marginLeft:-180
         }}
         contentContainerStyle={{
           flex: 1,
@@ -174,6 +301,55 @@ const ExerciseHomeScreen = ({navigation}) => {
         numColumns={2}
         keyExtractor={item => item.title}
         renderItem={({item}) => <ExerciseItem exercise={item} />}
+      />
+      <FlatList
+        data={exercise1}
+        style={{
+          paddingHorizontal: 20,
+          marginTop: -292,
+          marginLeft:195
+        }}
+        contentContainerStyle={{
+          flex: 1,
+          alignItems: 'stretch',
+          justifyContent: 'space-around',
+        }}
+        showsVerticalScrollIndicator={false}
+        numColumns={2}
+        keyExtractor={item => item.title}
+        renderItem={({item}) => <ExerciseItem1 exercise1={item} />}
+      />
+      <FlatList
+        data={exercise2}
+        style={{
+          paddingHorizontal: 20,
+          marginTop: -30,
+          marginRight:190
+        }}
+        contentContainerStyle={{
+          flex: 1,
+          alignItems:'flex-end',
+        }}
+        showsVerticalScrollIndicator={false}
+        numColumns={2}
+        keyExtractor={item => item.title}
+        renderItem={({item}) => <ExerciseItem2 exercise2={item} />}
+      />
+      <FlatList
+        data={exercise3}
+        style={{
+          paddingHorizontal: 20,
+          marginTop: -260,
+          marginLeft:220
+        }}
+        contentContainerStyle={{
+          flex: 1,
+          alignItems:'flex-end',
+        }}
+        showsVerticalScrollIndicator={false}
+        numColumns={2}
+        keyExtractor={item => item.title}
+        renderItem={({item}) => <ExerciseItem3 exercise3={item} />}
       />
     </SafeAreaView>
   );

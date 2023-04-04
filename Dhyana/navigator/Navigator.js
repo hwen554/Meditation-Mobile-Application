@@ -14,12 +14,15 @@ import {COLORS} from '../constants';
 const Stack = createStackNavigator();
 const StackNavigator = () => {
   return (
-    <Stack.Navigator initialRouteName={'ExercisesHomeScreen'} screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="ExercisesHomeScreen" component={ExerciseHomeScreen} />
+    <Stack.Navigator initialRouteName={'ExercisesHomeScreen'} >
+      <Stack.Screen name="ExercisesHomeScreen" component={ExerciseHomeScreen} options={{ headerShown: false }} />
       <Stack.Screen
         name="ExerciseDetailsScreen"
         component={ExerciseDetailsScreen}
       />
+      <Stack.Screen 
+        name="ScheduleScreen" 
+        component={ScheduleScreen}/>
     </Stack.Navigator>
   );
 };
@@ -73,7 +76,7 @@ const BottomTabNavigator = () => {
         },
       })}>
       <Tab.Screen name="Schedule" component={ScheduleScreen} />
-      <Tab.Screen name="AllExercises" component={StackNavigator} />
+      <Tab.Screen name="AllExercises" component={StackNavigator} options={{headerShown:false}} />
       <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
   );
