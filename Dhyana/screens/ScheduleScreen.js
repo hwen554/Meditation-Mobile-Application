@@ -7,6 +7,17 @@ const {width,height} = Dimensions.get('window');
 
 
 const ScheduleScreen = () => {
+
+  const renderSongs = ({item,index})=>{
+    return (
+        <View style={[style.imageWrapper, style.elevation]}>
+            <Image 
+              source={require('../assets/Images/img1.jpeg')}
+              style = {style.musicImage}
+            />
+        </View>
+    )
+  }
   return (
     <SafeAreaView style={style.container}>
       <View style={style.maincontainer}>
