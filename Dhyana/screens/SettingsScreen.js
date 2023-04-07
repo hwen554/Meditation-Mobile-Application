@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet,TouchableOpacity } from 'react-native';
 import { Avatar, Icon, SocialIcon } from 'react-native-elements';
 import myAvatar from '../assets/Images/cat.jpg'
 
@@ -37,15 +37,16 @@ export default class ProfilePage extends Component {
         </View> */}
 
         {/* personal information */}
-        <View style={styles.introContainer}>
-          <View style={styles.introTitleContainer}>
+        {/* react native navigation */}
+        <TouchableOpacity style={styles.introContainer}>
+          <TouchableOpacity style={styles.introTitleContainer}>
             <Icon name="person" />
             <Text style={styles.introTitle}>Information</Text>
-          </View>
+          </TouchableOpacity>
           <Text style={styles.introText}>
             I am a user
           </Text>
-        </View>
+        </TouchableOpacity>
         <View style={styles.introContainer}>
           <View style={styles.introTitleContainer}>
             <Icon name="person" />
