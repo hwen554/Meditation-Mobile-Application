@@ -18,6 +18,7 @@
     "deprecated-react-native-prop-types": "^4.0.0",
     "expo": "~48.0.6",
     "expo-status-bar": "~1.4.4",
+    "firebase": "^9.19.1",
     "react": "18.2.0",
     "react-jsx": "^1.0.0",
     "react-native": "0.71.4",

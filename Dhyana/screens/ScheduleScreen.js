@@ -4,30 +4,41 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Slider from '@react-native-community/slider';
 const {width,height} = Dimensions.get('window');
 
-
+import songs from '../assets/Songs/Data';
 
 const ScheduleScreen = () => {
 
   const renderSongs = ({item,index})=>{
     return (
+      <View style={style.mainImageWraaper}>
         <View style={[style.imageWrapper, style.elevation]}>
-            <Image 
-              source={require('../assets/Images/img1.jpeg')}
-              style = {style.musicImage}
-            />
+            <Image source={item.artwork} style = {style.musicImage}/>
         </View>
+      </View>
+        
     )
   }
   return (
     <SafeAreaView style={style.container}>
       <View style={style.maincontainer}>
         {/* image */}
-        <View style={[style.imageWrapper, style.elevation]}>
+        <FlatList
+            renderItem={renderSongs}
+            data={songs}
+            keyExtractor={item=>item.id}
+            horizontal
+            pagingEnabled
+            showsHorizontalScrollIndicator={false}
+            scrollEventThrottle={16}
+            onScroll={()=>{}}
+        />
+
+        {/* <View style={[style.imageWrapper, style.elevation]}>
           <Image
             source={require('../assets/Images/img1.jpeg')}
             style={style.musicImage}
           />
-        </View>
+        </View> */}
 
         <View>
           <Text style={[style.songContent,style.songName]}>Back at once</Text>
@@ -126,9 +137,11 @@ const style = StyleSheet.create({
     },
     musicImage: {
       width: '100%',
-      height: '100%',
+      height: '130%',
+      marginTop:'10%',
       borderRadius: 15,
     },
+    
     imageWrapper:{
       width:300,
       height:300,
