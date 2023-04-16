@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar'
 
 const {width, height} = Dimensions.get('window')
 const circleWidth = width/2
-
+{/*呼吸页面*/}
 const ExerciseDetailsScreen = () => {
   const move = useRef(new Animated.Value(0)).current
   const textOpacity = useRef(new Animated.Value(1)).current
