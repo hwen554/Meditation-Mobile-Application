@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Avatar, Icon, SocialIcon } from 'react-native-elements';
 import myAvatar from '../assets/Images/cat.jpg'
+
+//创建一个点击触摸的功能
+//create a touchable and click function
+// const TouchableButton = ({ onPress, title }) => {
+//   return (
+//     <TouchableOpacity onPress={onPress}>
+//       <Text>{title}</Text>
+//     </TouchableOpacity>
+//   );
+// }
 
 export default class ProfilePage extends Component {
   render() {
@@ -41,6 +51,7 @@ export default class ProfilePage extends Component {
           <View style={styles.introTitleContainer}>
             <Icon name="person" />
             <Text style={styles.introTitle}>Information</Text>
+            {/* <TouchableButton/> */}
           </View>
           <Text style={styles.introText}>
             I am a user
