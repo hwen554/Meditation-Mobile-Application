@@ -1,69 +1,93 @@
-// import React from 'react';
-// import {View, Text} from 'react-native';
+import React from 'react';
+import {View, Text} from 'react-native';
 
-// const ScheduleScreen = () => {
-//   return (
-//     <View>
-//       <Text>ScheduleScreen</Text>
-//     </View>
-//   );
-// };
-
-// export default ScheduleScreen;
-
-import React, { useState } from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
-import { Input, Button } from 'react-native-elements';
-
-const LoginScreen = ({ navigation }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleLogin = () => {
-    // 登录逻辑
-    //Login logic
-  };
-
+const ScheduleScreen = () => {
   return (
-    <View style={styles.container}>
-      <Image
-        style={styles.logo}
-        source={require('../assets/Images/cat.jpg')}
-      />
-      <Text style={styles.title}>Login</Text>
-      <Input
-        label="email"
-        onChangeText={setEmail}
-        value={email}
-        keyboardType="email-address"
-        labelStyle={styles.label}
-        inputStyle={styles.input}
-        leftIcon={{ type: 'font-awesome', name: 'envelope', color: '#6D8299' }}
-      />
-      <Input
-        label="password"
-        onChangeText={setPassword}
-        value={password}
-        secureTextEntry
-        labelStyle={styles.label}
-        inputStyle={styles.input}
-        leftIcon={{ type: 'font-awesome', name: 'lock', color: '#6D8299' }}
-      />
-      <Button
-        title="Login"
-        onPress={handleLogin}
-        containerStyle={styles.buttonContainer}
-        buttonStyle={styles.button}
-      />
-      <Button
-        title="No account? Register"
-        type="clear"
-        onPress={() => navigation.navigate('Register')}
-        titleStyle={styles.registerText}
-      />
+    <View>
+      <Text>ScheduleScreen</Text>
     </View>
   );
 };
+
+const style = StyleSheet.create({
+    container:{
+      flex:1,
+      backgroundColor:'#222831',
+    },
+    maincontainer:{
+      flex:1,
+      alignItems:'center',
+      justifyContent:'center'
+    },
+    bottomContainer:{
+      
+      borderTopColor: '#393E46',
+      borderWidth: 1,
+      width: width,
+      alignItems: 'center',
+      paddingVertical: 15,
+    },
+    bottomIconContainer:{
+      flexDirection:'row',
+      justifyContent:'space-between',
+      width:'80%'
+    },
+    bottomIconWrapper:{
+      flexDirection:'row',
+      justifyContent:'space-between',
+      width:'80%'
+    },
+    musicImage: {
+      width: '100%',
+      height: '100%',
+      borderRadius: 15,
+    },
+    imageWrapper:{
+      width:300,
+      height:300,
+      marginBottom:25,
+    },
+    elevation:{
+      elevation:5,
+      shadowColor:'#ccc',
+      shadowOffset:{
+        width:5,
+        height:5
+      },
+      shadowOpacity:0.5,
+      shadowRadius:3.84,
+    },
+    songName:{
+      fontSize:18,
+      fontWeight:600
+    },
+    songContent:{
+      textAlign:'center',
+      color:'#EEEEEE'
+    },
+    progressBar:{
+      width:350,
+      height:40,
+      marginTop:25,
+      flexDirection:'row'
+    },
+    progressLevelDuration:{
+      width:'340',
+      flexDirection:'row',
+      justifyContent:'space-between'
+    },
+    progressLabelText:{
+      color:'#FFF',
+      fontWeight:'500'
+    },
+    musicControlsContainer:{
+      flexDirection:'row',
+      alignItems:'center',
+      justifyContent:'space-between',
+      width:'60%',
+      marginTop:15
+    }
+})
 
 const styles = StyleSheet.create({
   container: {
