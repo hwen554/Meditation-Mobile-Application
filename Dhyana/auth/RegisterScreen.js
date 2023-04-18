@@ -1,26 +1,13 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
 import { Input, Button } from 'react-native-elements';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const RegisterScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
 
-  //sign up logic with firebase
-  const signUp = async () => {
-    try {
-      await firebase.auth().createUserWithEmailAndPassword(email, password);
-      setSuccessMessage('Register Success');
-      setTimeout(() => {
-        setSuccessMessage('');
-        navigation.navigate('UserProfile');
-      }, 2000);
-    } catch (error) {
-      setSuccessMessage('');
-      alert('Registration failed. Please check your email and password.');
-    }
+  const handleRegister = () => {
+    // 注册逻辑
   };
 
   return (
@@ -50,21 +37,16 @@ const RegisterScreen = ({ navigation }) => {
       />
       <Button
         title="Register"
-        // onPress={() => register(email, password)}
         onPress={RegisterScreen}
         containerStyle={styles.buttonContainer}
         buttonStyle={styles.button}
       />
-      <Text style={styles.successMessage}>{successMessage}</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
-        <Text style={styles.link}>"Already have an account? Login"</Text>
-      </TouchableOpacity>
-      {/* <Button
+      <Button
         title="Already have an account? Login"
         type="clear"
         onPress={() => navigation.navigate('Login')}
         titleStyle={styles.loginText}
-      /> */}
+      />
     </View>
   );
 };

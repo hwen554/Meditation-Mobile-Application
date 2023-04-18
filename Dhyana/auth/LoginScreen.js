@@ -3,33 +3,12 @@ import { View, StyleSheet, Text, Image } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import RegisterScreen from './RegisterScreen';
 
-
-
-// const login = async (email, password) => {
-//   try {
-//     const response = await firebase.auth().signInWithEmailAndPassword(email, password);
-//     console.log('User logged in successfully:', response);
-//   } catch (error) {
-//     console.error('Error logging in user:', error.message);
-//   }
-// };
-
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const signIn = async () => {
-    try {
-      await firebase.auth().signInWithEmailAndPassword(email, password);
-      navigation.navigate('UserProfile');
-    } catch (error) {
-      alert('Unregistered users, please register first.');
-    }
-  };
-
   const handleLogin = () => {
     // 登录逻辑
-    //Login logic
   };
 
   return (
@@ -59,13 +38,12 @@ const LoginScreen = ({ navigation }) => {
       />
       <Button
         title="Login"
-        // onPress={() => login(email, password)}
         onPress={LoginScreen}
         containerStyle={styles.buttonContainer}
         buttonStyle={styles.button}
       />
       <Button
-        title="No account? Register"
+        title="No account? register"
         type="clear"
         onPress={() => navigation.navigate('RegisterScreen')}
         titleStyle={styles.registerText}
