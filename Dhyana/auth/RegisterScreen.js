@@ -44,7 +44,7 @@ const RegisterScreen = ({ navigation }) => {
       <Button
         title="Already have an account? Login"
         type="clear"
-        onPress={() => navigation.navigate('Login')}
+        onPress={() => navigation.navigate('LoginScreen')}
         titleStyle={styles.loginText}
       />
     </View>
