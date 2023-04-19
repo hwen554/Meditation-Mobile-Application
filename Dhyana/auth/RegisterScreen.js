@@ -1,14 +1,42 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
+import { View, StyleSheet, Text, Image, Alert} from 'react-native';
 import { Input, Button } from 'react-native-elements';
+import { auth, db } from '../firebaseConfig';
+import { getAuth ,createUserWithEmailAndPassword } from 'firebase/auth';
+
 
 const RegisterScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState("");
+ 
+  // const signUp = async () => {
+  //   try {
+  //     await createUserWithEmailAndPassword(auth, email, password);
+  //     console.log(email);
+  //     navigation.navigate("LoginScreen");
+  //   } catch (err) {
+  //     setError(err.message);
+  //   }
+  // };
 
-  const handleRegister = () => {
-    // 注册逻辑
+  const handleRegister = async () => {
+    try {
+      const { user } = await createUserWithEmailAndPassword(auth, email, password);
+  
+      // Save the user data to Firestore
+      await db.collection('users').doc(user.uid).set({
+        email: user.email,
+      });
+  
+      Alert.alert('Register success');
+      navigation.navigate('LoginScreen');
+    } catch (error) {
+      console.error('Register failed', error);
+      Alert.alert('Register failed', error.message);
+    }
   };
+  
 
   return (
     <View style={styles.container}>
@@ -37,7 +65,7 @@ const RegisterScreen = ({ navigation }) => {
       />
       <Button
         title="Register"
-        onPress={RegisterScreen}
+        onPress={handleRegister}
         containerStyle={styles.buttonContainer}
         buttonStyle={styles.button}
       />

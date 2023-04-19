@@ -2,13 +2,21 @@ import React, { useState } from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import RegisterScreen from './RegisterScreen';
+import { auth } from '../firebaseConfig';
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    // 登录逻辑
+  const handleLogin = async () => {
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      Alert.alert('Login success');
+      // navigation.navigate('ProfileScreen');
+    } catch (error) {
+      console.error('Login failed', error);
+      Alert.alert('Login failed', error.message);
+    }
   };
 
   return (
@@ -38,7 +46,7 @@ const LoginScreen = ({ navigation }) => {
       />
       <Button
         title="Login"
-        onPress={LoginScreen}
+        onPress={handleLogin}
         containerStyle={styles.buttonContainer}
         buttonStyle={styles.button}
       />
