@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
+import { View, StyleSheet, Text, Image, Alert } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import RegisterScreen from './RegisterScreen';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebaseConfig';
+
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -10,9 +12,9 @@ const LoginScreen = ({ navigation }) => {
 
   const handleLogin = async () => {
     try {
-      await auth.signInWithEmailAndPassword(email, password);
+      await signInWithEmailAndPassword(auth, email, password);
       Alert.alert('Login success');
-      // navigation.navigate('ProfileScreen');
+      navigation.navigate('Main');
     } catch (error) {
       console.error('Login failed', error);
       Alert.alert('Login failed', error.message);

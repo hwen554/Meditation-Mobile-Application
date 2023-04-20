@@ -3,7 +3,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import BottomTabNavigator from './navigator/Navigator';
 import { createStackNavigator } from '@react-navigation/stack';
-import { WelcomePage, LoginScreen, RegisterScreen } from './screens';
+import { WelcomePage, LoginScreen, RegisterScreen, ExerciseHomeScreen } from './screens';
 
 //Define Stack
 const Stack = createStackNavigator()
@@ -26,6 +26,16 @@ const App = () => {
           name="RegisterScreen"
           component={RegisterScreen}
           options={{ title: 'Register' }}
+        />
+        <Stack.Screen
+          name="ExerciseHomeScreen"
+          component={ExerciseHomeScreen}
+          options={{title: 'ExerciseHome'}}
+        />
+        <Stack.Screen
+          name="Main"
+          component={BottomTabNavigator}
+          options={{ headerShown: false }}  
         />
         {/* Add other pages here */}
       </Stack.Navigator>

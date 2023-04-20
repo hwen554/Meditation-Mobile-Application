@@ -6,6 +6,7 @@ import WelcomePage from './WelcomePage';
 import LoginScreen from '../auth/LoginScreen';
 import RegisterScreen from '../auth/RegisterScreen';
 
+
 export {
   ExerciseHomeScreen,
   ExerciseDetailsScreen,
