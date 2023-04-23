@@ -7,6 +7,7 @@ import {
   ExerciseHomeScreen,
   ScheduleScreen,
   SettingsScreen,
+  MeditationScreen
 } from '../screens';
 import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
 import {COLORS} from '../constants';
@@ -23,6 +24,9 @@ const StackNavigator = () => {
       <Stack.Screen 
         name="ScheduleScreen" 
         component={ScheduleScreen}/>
+      <Stack.Screen
+        name="MeditationScreen"
+        component={MeditationScreen}/>
     </Stack.Navigator>
   );
 };

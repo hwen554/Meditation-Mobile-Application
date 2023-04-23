@@ -71,7 +71,7 @@ const ExerciseHomeScreen = ({navigation}) => {
     return (
       <TouchableOpacity
         onPress={() =>
-          navigation.navigate('ExerciseDetailsScreen','ScheduleScreen', {exercise: exercise})
+          navigation.navigate('ExerciseDetailsScreen', {exercise: exercise})
         }
         activeOpacity={0.8}
         style={{
@@ -103,7 +103,7 @@ const ExerciseHomeScreen = ({navigation}) => {
     return (
       <TouchableOpacity
         onPress={() =>
-          navigation.navigate('ScheduleScreen', {exercise1: exercise1})
+          navigation.navigate('MeditationScreen', {exercise: exercise1})
         }
         activeOpacity={0.8}
         style={{
@@ -134,7 +134,7 @@ const ExerciseHomeScreen = ({navigation}) => {
     return (
       <TouchableOpacity
         onPress={() =>
-          navigation.navigate('ScheduleScreen', {exercise2: exercise2})
+          navigation.navigate('ScheduleScreen', {exercise: exercise2})
         }
         activeOpacity={0.8}
         style={{
@@ -165,7 +165,7 @@ const ExerciseHomeScreen = ({navigation}) => {
     return (
       <TouchableOpacity
         onPress={() =>
-          navigation.navigate('ScheduleScreen', {exercise3: exercise3})
+          navigation.navigate('ScheduleScreen', {exercise: exercise3})
         }
         activeOpacity={0.8}
         style={{
