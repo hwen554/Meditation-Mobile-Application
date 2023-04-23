@@ -21,12 +21,52 @@ let sessions_data = [
     'Session 06',
 ];
 
+let session1 = [
+    {
+        title:'Session 1'
+    }
+]
+
+let session2 = [
+    {
+        title:'Session 2'
+    }
+]
+
+let session3 = [
+    {
+        title:'Session 3'
+    }
+]
+
+let session4 = [
+    {
+        title:'Session 4'
+    }
+]
+
+let session5 = [
+    {
+        title:'Session 5'
+    }
+]
+
+let session6 = [
+    {
+        title:'Session 6'
+    }
+]
+
+
 const MeditationScreen = ({route,navigation}) =>{
     const [exercise, setExercise] = useState(route.params.exercise);
 
     const SessionItem = ({session,index})=>{
         return (
-            <View
+            <TouchableOpacity
+                onPress={() =>
+                    navigation.navigate('ScheduleScreen')
+                }
                 style={{
                     backgroundColor: COLORS.white,
                     width: 0.5 * SIZES.width - 40,
@@ -41,7 +81,10 @@ const MeditationScreen = ({route,navigation}) =>{
                     shadowColor: '#9e9898',
                     elevation: 5,
              }}>
-                <View 
+                <TouchableOpacity 
+                    onPress={() =>
+                        navigation.navigate('ScheduleScreen')
+                    }
                     style={{
                         width: 40,
                         height: 40,
@@ -57,9 +100,9 @@ const MeditationScreen = ({route,navigation}) =>{
                         name="play"
                         style={{color: index == 0 ? COLORS.white : COLORS.purple}}
                     />  
-                </View> 
+                </TouchableOpacity> 
                 <Text>{session}</Text>
-            </View>
+            </TouchableOpacity>
         )
     }
 
@@ -116,13 +159,13 @@ const MeditationScreen = ({route,navigation}) =>{
                     numColumns={2}
                     keyExtractor={item => item}
                     renderItem={({item, index}) => (
-                        <TouchableOpacity
+                        <View
                         //   onPress={()=>
                         //     navigation.navigate('MeditationSession1Screen',{name: 'Session1'})
                         //  }
                         >
                             <SessionItem session={item} index={index} />
-                        </TouchableOpacity>
+                        </View>
 
                     )}
                 />
