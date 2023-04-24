@@ -65,6 +65,96 @@ const MeditationScreen = ({route,navigation}) =>{
         return (
             <TouchableOpacity
                 onPress={() =>
+                    navigation.navigate('Session1Screen')
+                }
+                style={{
+                    backgroundColor: COLORS.white,
+                    width: 0.5 * SIZES.width - 40,
+                    borderRadius: 10,
+                    marginBottom: 10,
+                    marginHorizontal: 5,
+                    height: 70,
+                    padding: 15,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start',
+                    shadowColor: '#9e9898',
+                    elevation: 5,
+             }}>
+                <TouchableOpacity 
+                    onPress={() =>
+                        navigation.navigate('Session1Screen')
+                    }
+                    style={{
+                        width: 40,
+                        height: 40,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        borderWidth: 2,
+                        borderColor: COLORS.purple,
+                        backgroundColor: COLORS.white,
+                        marginRight: 15,
+                        borderRadius: 20,
+                    }}>
+                    <FontAwesome5Icons
+                        name="play"
+                        style={{color:  COLORS.purple}}
+                    />  
+                </TouchableOpacity> 
+                <Text>{session}</Text>
+            </TouchableOpacity>
+        )
+    }
+
+    const SessionItem1 = ({session1})=>{
+        return (
+            <TouchableOpacity
+                onPress={() =>
+                    navigation.navigate('Session1Screen')
+                }
+                style={{
+                    backgroundColor: COLORS.white,
+                    width: 0.5 * SIZES.width - 40,
+                    borderRadius: 10,
+                    marginBottom: 10,
+                    marginHorizontal: 5,
+                    height: 70,
+                    padding: 15,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start',
+                    shadowColor: '#9e9898',
+                    elevation: 5,
+             }}>
+                <TouchableOpacity 
+                    onPress={() =>
+                        navigation.navigate('ScheduleScreen')
+                    }
+                    style={{
+                        width: 40,
+                        height: 40,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        borderWidth: 2,
+                        borderColor: COLORS.purple,
+                        backgroundColor: COLORS.purple,
+                        marginRight: 15,
+                        borderRadius: 20,
+                    }}>
+                    <FontAwesome5Icons
+                        name="play"
+                        style={{color: COLORS.purple}}
+                    />  
+                </TouchableOpacity> 
+                <Text>{session1.title}</Text>
+            </TouchableOpacity>
+        )
+    }
+
+    const SessionItem2 = ({session2})=>{
+        return (
+            <TouchableOpacity
+                onPress={() =>
                     navigation.navigate('ScheduleScreen')
                 }
                 style={{
@@ -92,16 +182,196 @@ const MeditationScreen = ({route,navigation}) =>{
                         alignItems: 'center',
                         borderWidth: 2,
                         borderColor: COLORS.purple,
-                        backgroundColor: index == 0 ? COLORS.purple : COLORS.white,
+                        backgroundColor:  COLORS.white,
                         marginRight: 15,
                         borderRadius: 20,
                     }}>
                     <FontAwesome5Icons
                         name="play"
-                        style={{color: index == 0 ? COLORS.white : COLORS.purple}}
+                        style={{color:  COLORS.purple}}
                     />  
                 </TouchableOpacity> 
-                <Text>{session}</Text>
+                <Text>{session2.title}</Text>
+            </TouchableOpacity>
+        )
+    }
+
+    const SessionItem3 = ({session3})=>{
+        return (
+            <TouchableOpacity
+                onPress={() =>
+                    navigation.navigate('ScheduleScreen')
+                }
+                style={{
+                    backgroundColor: COLORS.white,
+                    width: 0.5 * SIZES.width - 40,
+                    borderRadius: 10,
+                    marginBottom: 10,
+                    marginHorizontal: 5,
+                    height: 70,
+                    padding: 15,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start',
+                    shadowColor: '#9e9898',
+                    elevation: 5,
+             }}>
+                <TouchableOpacity 
+                    onPress={() =>
+                        navigation.navigate('ScheduleScreen')
+                    }
+                    style={{
+                        width: 40,
+                        height: 40,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        borderWidth: 2,
+                        borderColor: COLORS.purple,
+                        backgroundColor:  COLORS.white,
+                        marginRight: 15,
+                        borderRadius: 20,
+                    }}>
+                    <FontAwesome5Icons
+                        name="play"
+                        style={{color:  COLORS.purple}}
+                    />  
+                </TouchableOpacity> 
+                <Text>{session3.title}</Text>
+            </TouchableOpacity>
+        )
+    }
+
+    const SessionItem4 = ({session4})=>{
+        return (
+            <TouchableOpacity
+                onPress={() =>
+                    navigation.navigate('ScheduleScreen')
+                }
+                style={{
+                    backgroundColor: COLORS.white,
+                    width: 0.5 * SIZES.width - 40,
+                    borderRadius: 10,
+                    marginBottom: 10,
+                    marginHorizontal: 5,
+                    height: 70,
+                    padding: 15,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start',
+                    shadowColor: '#9e9898',
+                    elevation: 5,
+             }}>
+                <TouchableOpacity 
+                    onPress={() =>
+                        navigation.navigate('ScheduleScreen')
+                    }
+                    style={{
+                        width: 40,
+                        height: 40,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        borderWidth: 2,
+                        borderColor: COLORS.purple,
+                        backgroundColor:  COLORS.white ,
+                        marginRight: 15,
+                        borderRadius: 20,
+                    }}>
+                    <FontAwesome5Icons
+                        name="play"
+                        style={{color:  COLORS.purple}}
+                    />  
+                </TouchableOpacity> 
+                <Text>{session4.title}</Text>
+            </TouchableOpacity>
+        )
+    }
+
+    const SessionItem5 = ({session5})=>{
+        return (
+            <TouchableOpacity
+                onPress={() =>
+                    navigation.navigate('ScheduleScreen')
+                }
+                style={{
+                    backgroundColor: COLORS.white,
+                    width: 0.5 * SIZES.width - 40,
+                    borderRadius: 10,
+                    marginBottom: 10,
+                    marginHorizontal: 5,
+                    height: 70,
+                    padding: 15,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start',
+                    shadowColor: '#9e9898',
+                    elevation: 5,
+             }}>
+                <TouchableOpacity 
+                    onPress={() =>
+                        navigation.navigate('ScheduleScreen')
+                    }
+                    style={{
+                        width: 40,
+                        height: 40,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        borderWidth: 2,
+                        borderColor: COLORS.purple,
+                        backgroundColor:  COLORS.purple ,
+                        marginRight: 15,
+                        borderRadius: 20,
+                    }}>
+                    <FontAwesome5Icons
+                        name="play"
+                        style={{color:  COLORS.purple}}
+                    />  
+                </TouchableOpacity> 
+                <Text>{session5.title}</Text>
+            </TouchableOpacity>
+        )
+    }
+
+    const SessionItem6 = ({session6})=>{
+        return (
+            <TouchableOpacity
+                onPress={() =>
+                    navigation.navigate('ScheduleScreen')
+                }
+                style={{
+                    backgroundColor: COLORS.white,
+                    width: 0.5 * SIZES.width - 40,
+                    borderRadius: 10,
+                    marginBottom: 10,
+                    marginHorizontal: 5,
+                    height: 70,
+                    padding: 15,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start',
+                    shadowColor: '#9e9898',
+                    elevation: 5,
+             }}>
+                <TouchableOpacity 
+                    onPress={() =>
+                        navigation.navigate('ScheduleScreen')
+                    }
+                    style={{
+                        width: 40,
+                        height: 40,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        borderWidth: 2,
+                        borderColor: COLORS.purple,
+                        backgroundColor:  COLORS.purple ,
+                        marginRight: 15,
+                        borderRadius: 20,
+                    }}>
+                    <FontAwesome5Icons
+                        name="play"
+                        style={{color:  COLORS.purple}}
+                    />  
+                </TouchableOpacity> 
+                <Text>{session6.title}</Text>
             </TouchableOpacity>
         )
     }
@@ -151,24 +421,48 @@ const MeditationScreen = ({route,navigation}) =>{
 
             <View style={{marginTop: -30, marginHorizontal: 30}}>
                 <FlatList
-                    data={sessions_data}
+                    data={session1}
                     contentContainerStyle={{
                         alignItems: 'center',
                     }}
                     showsVerticalScrollIndicator={false}
                     numColumns={2}
                     keyExtractor={item => item}
-                    renderItem={({item, index}) => (
-                        <View
-                        //   onPress={()=>
-                        //     navigation.navigate('MeditationSession1Screen',{name: 'Session1'})
-                        //  }
-                        >
-                            <SessionItem session={item} index={index} />
-                        </View>
-
-                    )}
+                    renderItem={({item}) => <SessionItem1 session1={item} />}
                 />
+
+                <FlatList
+                    data={session2}
+                    contentContainerStyle={{
+                        alignItems: 'center',
+                    }}
+                    showsVerticalScrollIndicator={false}
+                    numColumns={2}
+                    keyExtractor={item => item}
+                    renderItem={({item}) => <SessionItem2 session2={item} />}
+                />
+
+                <FlatList
+                    data={session3}
+                    contentContainerStyle={{
+                        alignItems: 'center',
+                    }}
+                    showsVerticalScrollIndicator={false}
+                    numColumns={2}
+                    keyExtractor={item => item}
+                    renderItem={({item}) => <SessionItem3 session3={item} />}
+                />
+
+                {/* <FlatList
+                    data={session4}
+                    contentContainerStyle={{
+                        alignItems: 'center',
+                    }}
+                    showsVerticalScrollIndicator={false}
+                    numColumns={2}
+                    keyExtractor={item => item}
+                    renderItem={({item}) => <SessionItem4 session4={item} />}
+                /> */}
                 <Text style={{marginVertical: 15, fontSize: 20}}>{exercise.title}</Text>
                 <View
                     style={{

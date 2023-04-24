@@ -302,6 +302,7 @@ const ExerciseHomeScreen = ({navigation}) => {
         keyExtractor={item => item.title}
         renderItem={({item}) => <ExerciseItem exercise={item} />}
       />
+      
       <FlatList
         data={exercise1}
         style={{
