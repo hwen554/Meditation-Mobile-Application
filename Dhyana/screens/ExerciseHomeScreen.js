@@ -15,7 +15,7 @@ import {COLORS, SIZES} from '../constants';
 let exercise = [
   {
     title: 'Breathing',
-    image: require('../assets/Images/Exercise1.png'),
+    image: require('../assets/Images/breath.jpeg'),
     subTitle:
       'Live happier and healthier by learning the fundamentals of diet recommendation',
     duration: '5-20 MIN Course',
@@ -42,7 +42,7 @@ let exercise = [
  let exercise1 =[
   {
     title:'Mindfulness',
-    image: require('../assets/Images/Exercise2.png'),
+    image: require('../assets/Images/mindfulness.jpeg'),
     subTitle:'Live happier and healthier by learning the fundamentals of Yoga',
     duration: '5-20 MIN Course',
   },
@@ -50,7 +50,7 @@ let exercise = [
  let exercise2 =[
   {
     title:'Taichi',
-    image: require('../assets/Images/Exercise3.png'),
+    image: require('../assets/Images/woodenfish.jpeg'),
     subTitle:'Live happier and healthier by learning the fundamentals of diet recommendation',
     duration: '5-20 MIN Course',
   },
@@ -59,7 +59,7 @@ let exercise = [
  let exercise3=[
   {
     title:'Music',
-    image: require('../assets/Images/Exercise4.png'),
+    image: require('../assets/Images/music.jpeg'),
     subTitle:'Live happier and healthier by learning the fundamentals of diet recommendation',
     duration: '5-20 MIN Course',
   }
@@ -216,7 +216,7 @@ const ExerciseHomeScreen = ({navigation}) => {
           source={require('../assets/Images/BgOrange.png')}
           style={{
             position: 'absolute',
-            top: 60,
+            top: 10,
             left: -50,
           }}
         />
