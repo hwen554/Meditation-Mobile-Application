@@ -134,7 +134,7 @@ const ExerciseHomeScreen = ({navigation}) => {
     return (
       <TouchableOpacity
         onPress={() =>
-          navigation.navigate('ScheduleScreen', {exercise: exercise2})
+          navigation.navigate('WoodenFishScreen', {exercise: exercise2})
         }
         activeOpacity={0.8}
         style={{

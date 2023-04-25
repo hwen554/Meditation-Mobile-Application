@@ -2,12 +2,33 @@ import React from 'react';
 import {View, Text,Dimensions,SafeAreaView,StyleSheet, TouchableOpacity, Image,Animated,FlatList} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Slider from '@react-native-community/slider';
+import {Audio} from 'expo-av'
 const {width,height} = Dimensions.get('window');
 
 
 import songs from '../assets/Songs/Data';
 
 const ScheduleScreen = () => {
+  const [sound,setSound] = React.useState()
+
+  const playSound = async ()=>{
+    console.log('Loading Sound')
+    const { sound } = await Audio.Sound.createAsync( require('../assets/howlong.mp3')
+    );
+    setSound(sound);
+
+    console.log('Playing Sound');
+    await sound.playAsync();
+  }
+
+  React.useEffect(() => {
+    return sound
+      ? () => {
+          console.log('Unloading Sound');
+          sound.unloadAsync();
+        }
+      : undefined;
+  }, [sound]);
 
   const renderSongs = ({item,index})=>{
     return (
@@ -76,7 +97,7 @@ const ScheduleScreen = () => {
               <Ionicons name='play-skip-back-outline' size={35} color='yellow' />
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>{}}>
+          <TouchableOpacity onPress={playSound}>
               <Ionicons name='ios-pause-circle' size={75} color='yellow' />
           </TouchableOpacity>
 
@@ -194,6 +215,12 @@ const style = StyleSheet.create({
       justifyContent:'space-between',
       width:'60%',
       marginTop:15
+    },
+    mainImageWraaper:{
+      width:width,
+      justifyContent:'center',
+      alignItems:'center',
+      marginTop:25
     }
 })
 

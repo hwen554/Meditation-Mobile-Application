@@ -114,7 +114,7 @@ const MeditationScreen = ({route,navigation}) =>{
                 }
                 style={{
                     backgroundColor: COLORS.white,
-                    width: 0.5 * SIZES.width - 40,
+                    width: 0.87 * SIZES.width - 40,
                     borderRadius: 10,
                     marginBottom: 10,
                     marginHorizontal: 5,
@@ -126,9 +126,10 @@ const MeditationScreen = ({route,navigation}) =>{
                     shadowColor: '#9e9898',
                     elevation: 5,
              }}>
+                {/* playIcon*/}
                 <TouchableOpacity 
                     onPress={() =>
-                        navigation.navigate('ScheduleScreen')
+                        navigation.navigate('Session1Screen')
                     }
                     style={{
                         width: 40,
@@ -137,7 +138,7 @@ const MeditationScreen = ({route,navigation}) =>{
                         alignItems: 'center',
                         borderWidth: 2,
                         borderColor: COLORS.purple,
-                        backgroundColor: COLORS.purple,
+                        backgroundColor: COLORS.white,
                         marginRight: 15,
                         borderRadius: 20,
                     }}>
@@ -155,11 +156,11 @@ const MeditationScreen = ({route,navigation}) =>{
         return (
             <TouchableOpacity
                 onPress={() =>
-                    navigation.navigate('ScheduleScreen')
+                    navigation.navigate('Session2Screen')
                 }
                 style={{
                     backgroundColor: COLORS.white,
-                    width: 0.5 * SIZES.width - 40,
+                    width: 0.87 * SIZES.width - 40,
                     borderRadius: 10,
                     marginBottom: 10,
                     marginHorizontal: 5,
@@ -173,7 +174,7 @@ const MeditationScreen = ({route,navigation}) =>{
              }}>
                 <TouchableOpacity 
                     onPress={() =>
-                        navigation.navigate('ScheduleScreen')
+                        navigation.navigate('Session2Screen')
                     }
                     style={{
                         width: 40,
@@ -200,11 +201,11 @@ const MeditationScreen = ({route,navigation}) =>{
         return (
             <TouchableOpacity
                 onPress={() =>
-                    navigation.navigate('ScheduleScreen')
+                    navigation.navigate('Session3Screen')
                 }
                 style={{
                     backgroundColor: COLORS.white,
-                    width: 0.5 * SIZES.width - 40,
+                    width: 0.87 * SIZES.width - 40,
                     borderRadius: 10,
                     marginBottom: 10,
                     marginHorizontal: 5,
@@ -218,7 +219,7 @@ const MeditationScreen = ({route,navigation}) =>{
              }}>
                 <TouchableOpacity 
                     onPress={() =>
-                        navigation.navigate('ScheduleScreen')
+                        navigation.navigate('Session3Screen')
                     }
                     style={{
                         width: 40,
@@ -406,7 +407,7 @@ const MeditationScreen = ({route,navigation}) =>{
                 <Text style={{fontSize: 16, width: '85%'}}>{exercise.subTitle}</Text>
                 
                 {/* Mindfullness image*/}
-                <Image
+                {/* <Image
                     source={exercise.image}
                     style={{
                         position: 'absolute',
@@ -416,7 +417,7 @@ const MeditationScreen = ({route,navigation}) =>{
                         height: 250,
                         resizeMode: 'contain',
                     }}
-                />
+                /> */}
             </View>
 
             <View style={{marginTop: -30, marginHorizontal: 30}}>
