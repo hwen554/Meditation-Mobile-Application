@@ -7,6 +7,11 @@ import {
   ExerciseHomeScreen,
   ScheduleScreen,
   SettingsScreen,
+  MeditationScreen,
+  Session1Screen,
+  Session2Screen,
+  Session3Screen,
+  WoodenFishScreen,
 } from '../screens';
 import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
 import {COLORS} from '../constants';
@@ -14,12 +19,30 @@ import {COLORS} from '../constants';
 const Stack = createStackNavigator();
 const StackNavigator = () => {
   return (
-    <Stack.Navigator initialRouteName={'ExercisesHomeScreen'} screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="ExercisesHomeScreen" component={ExerciseHomeScreen} />
+    <Stack.Navigator initialRouteName={'ExercisesHomeScreen'} >
+      <Stack.Screen name="ExercisesHomeScreen" component={ExerciseHomeScreen} options={{ headerShown: false }} />
       <Stack.Screen
         name="ExerciseDetailsScreen"
         component={ExerciseDetailsScreen}
       />
+      <Stack.Screen 
+        name="ScheduleScreen" 
+        component={ScheduleScreen}/>
+      <Stack.Screen
+        name="MeditationScreen"
+        component={MeditationScreen}/>
+      <Stack.Screen
+        name="Session1Screen"
+        component={Session1Screen}/>
+      <Stack.Screen
+        name="Session2Screen"
+        component={Session2Screen}/>
+      <Stack.Screen
+        name="Session3Screen"
+        component={Session3Screen}/>
+      <Stack.Screen
+        name="WoodenFishScreen"
+        component={WoodenFishScreen}/>
     </Stack.Navigator>
   );
 };
@@ -73,7 +96,7 @@ const BottomTabNavigator = () => {
         },
       })}>
       <Tab.Screen name="Schedule" component={ScheduleScreen} />
-      <Tab.Screen name="AllExercises" component={StackNavigator} />
+      <Tab.Screen name="AllExercises" component={StackNavigator} options={{headerShown:false}} />
       <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
   );
