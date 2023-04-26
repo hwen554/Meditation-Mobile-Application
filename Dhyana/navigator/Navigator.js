@@ -79,7 +79,7 @@ const BottomTabNavigator = () => {
           const labels = {
             Schedule: 'Main',
             AllExercises: 'Search',
-            Settings: 'Protfilo',
+            Settings: 'User',
           };
 
           return (

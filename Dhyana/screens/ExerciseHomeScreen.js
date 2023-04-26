@@ -49,7 +49,7 @@ let exercise = [
  ]
  let exercise2 =[
   {
-    title:'Taichi',
+    title:'Wooden Fish',
     image: require('../assets/Images/woodenfish.jpeg'),
     subTitle:'Live happier and healthier by learning the fundamentals of diet recommendation',
     duration: '5-20 MIN Course',
