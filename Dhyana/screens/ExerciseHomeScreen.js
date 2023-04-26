@@ -15,7 +15,7 @@ import {COLORS, SIZES} from '../constants';
 let exercise = [
   {
     title: 'Breathing',
-    image: require('../assets/Images/Exercise1.png'),
+    image: require('../assets/Images/button-呼吸.jpg'),
     subTitle:
       'Live happier and healthier by learning the fundamentals of diet recommendation',
     duration: '5-20 MIN Course',
@@ -42,7 +42,7 @@ let exercise = [
  let exercise1 =[
   {
     title:'Mindfulness',
-    image: require('../assets/Images/Exercise2.png'),
+    image: require('../assets/Images/button-冥想.jpg'),
     subTitle:'Live happier and healthier by learning the fundamentals of Yoga',
     duration: '5-20 MIN Course',
   },
@@ -50,7 +50,7 @@ let exercise = [
  let exercise2 =[
   {
     title:'Taichi',
-    image: require('../assets/Images/Exercise3.png'),
+    image: require('../assets/Images/button-呼吸.jpg'),
     subTitle:'Live happier and healthier by learning the fundamentals of diet recommendation',
     duration: '5-20 MIN Course',
   },
@@ -59,7 +59,7 @@ let exercise = [
  let exercise3=[
   {
     title:'Music',
-    image: require('../assets/Images/Exercise4.png'),
+    image: require('../assets/Images/button-音乐.jpg'),
     subTitle:'Live happier and healthier by learning the fundamentals of diet recommendation',
     duration: '5-20 MIN Course',
   }
