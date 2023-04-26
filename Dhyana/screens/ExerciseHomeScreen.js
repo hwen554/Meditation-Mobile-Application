@@ -257,7 +257,7 @@ const ExerciseHomeScreen = ({navigation}) => {
         <Text style={{fontSize: 30, lineHeight: 45}}>
           Good Morning Gavin
         </Text>
-        <View
+        {/* <View
           style={{
             flexDirection: 'row',
             alignItems: 'center',
@@ -273,7 +273,7 @@ const ExerciseHomeScreen = ({navigation}) => {
             style={{marginHorizontal: 20}}
           />
           <TextInput placeholder="Search" style={{flex: 1}} />
-        </View>
+        </View> */}
         <View
           style={{
             width: 60,
