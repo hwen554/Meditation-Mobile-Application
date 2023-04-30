@@ -27,7 +27,7 @@ const StackNavigator = () => {
       />
       <Stack.Screen 
         name="ScheduleScreen" 
-        component={ScheduleScreen}/>
+        component={ScheduleScreen} options={{ headerShown: false }}/>
       <Stack.Screen
         name="MeditationScreen"
         component={MeditationScreen}/>

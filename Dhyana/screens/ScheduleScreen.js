@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect,useRef,useState } from 'react';
 import {View, Text,Dimensions,SafeAreaView,StyleSheet, TouchableOpacity, Image,Animated,FlatList} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Slider from '@react-native-community/slider';
@@ -10,10 +10,20 @@ import songs from '../assets/Songs/Data';
 
 const ScheduleScreen = () => {
   const [sound,setSound] = React.useState()
+  const scrollX = useRef(new Animated.Value(0)).current;
+  const [songIndex,setsongIndex] = useState(0)
 
+  useEffect(()=>{
+    scrollX.addListener(({value})=>{
+      // console.log(`ScrollX : ${value} | Device Width : ${width}`)
+      const index = Math.round(value / width)
+      setsongIndex(index)
+      // console.log(index)
+    })
+  })
   const playSound = async ()=>{
     console.log('Loading Sound')
-    const { sound } = await Audio.Sound.createAsync( require('../assets/howlong.mp3')
+    const { sound } = await Audio.Sound.createAsync( require('../assets/g7.mp3')
     );
     setSound(sound);
 
@@ -32,15 +42,15 @@ const ScheduleScreen = () => {
 
   const renderSongs = ({item,index})=>{
     return (
-      <View style={style.mainImageWraaper}>
+      <Animated.View style={style.mainImageWraaper}>
         <View style={[style.imageWrapper, style.elevation]}>
-            <Image 
+            {/* <Image 
               source={require('../assets/Images/img1.jpeg')}
               style = {style.musicImage}
-            />
+            /> */}
             <Image source={item.artwork} style = {style.musicImage}/>
         </View>
-      </View>
+      </Animated.View>
         
     )
   }
@@ -49,7 +59,7 @@ const ScheduleScreen = () => {
       <View style={style.maincontainer}>
         {/* image */}
         
-        <FlatList
+        <Animated.FlatList
             renderItem={renderSongs}
             data={songs}
             keyExtractor={item=>item.id}
@@ -57,7 +67,16 @@ const ScheduleScreen = () => {
             pagingEnabled
             showsHorizontalScrollIndicator={false}
             scrollEventThrottle={16}
-            onScroll={()=>{}}
+            onScroll={Animated.event(
+              [
+                {
+                  nativeEvent:{
+                    contentOffset:{x:scrollX}
+                  },
+                },
+              ],
+              {useNativeDriver:true}
+            )}
         />
 
         {/* <View style={[style.imageWrapper, style.elevation]}>
@@ -69,7 +88,7 @@ const ScheduleScreen = () => {
         </View> */}
 
         <View>
-          <Text style={[style.songContent,style.songName]}>Back at once</Text>
+          <Text style={[style.songContent,style.songName]}>{songs[songIndex].title}</Text>
 
         </View>
 
@@ -188,7 +207,8 @@ const style = StyleSheet.create({
     },
     songName:{
       fontSize:18,
-      fontWeight:600
+      fontWeight:600,
+      color:'#FFD700'
     },
     songContent:{
       textAlign:'center',
