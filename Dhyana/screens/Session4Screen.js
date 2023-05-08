@@ -2,7 +2,7 @@ import { StyleSheet, View,Button } from 'react-native'
 import React from 'react'
 import {Video} from 'expo-av'
 
-const Session2Screen = () => {
+const Session3Screen = () => {
   const video = React.useRef(null);
 //   const secondVideo = React.useRef(null);
   const [status, setStatus] = React.useState({});
@@ -12,7 +12,7 @@ const Session2Screen = () => {
        <Video
         ref={video}
         style={styles.video}
-        source={require('../assets/water2.mp4')}
+        source={require('../assets/peace.mp4')}
         useNativeControls
         resizeMode="contain"
         isLooping={true}
@@ -26,7 +26,7 @@ const Session2Screen = () => {
   )
 }
 
-export default Session2Screen
+export default Session3Screen
 
 const styles = StyleSheet.create({
   container: {

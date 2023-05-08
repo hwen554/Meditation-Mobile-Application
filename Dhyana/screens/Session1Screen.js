@@ -12,7 +12,7 @@ const Session1Screen = () => {
        <Video
         ref={video}
         style={styles.video}
-        source={require('../assets/peace.mp4')}
+        source={require('../assets/fire1.mp4')}
         useNativeControls
         resizeMode="contain"
         isLooping={true}
