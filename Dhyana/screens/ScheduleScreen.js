@@ -3,6 +3,8 @@ import {View, Text,Dimensions,SafeAreaView,StyleSheet, TouchableOpacity, Image,A
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Slider from '@react-native-community/slider';
 import {Audio} from 'expo-av'
+
+
 const {width,height} = Dimensions.get('window');
 
 
@@ -23,11 +25,19 @@ const ScheduleScreen = () => {
   })
   const playSound = async ()=>{
     console.log('Loading Sound')
-    const { sound } = await Audio.Sound.createAsync( require('../assets/g7.mp3')
-    );
+    const { sound } = await Audio.Sound.createAsync( require('../assets/howlong.mp3'));
     setSound(sound);
 
     console.log('Playing Sound');
+    await sound.playAsync();
+  }
+
+  const playSound2 = async ()=>{
+    console.log('Loading Sound')
+    const { sound } = await Audio.Sound.createAsync( require('../assets/yinmai.mp3'));
+    setSound(sound);
+
+    console.log('Playing sound')
     await sound.playAsync();
   }
 
@@ -112,7 +122,7 @@ const ScheduleScreen = () => {
         </View>
 
         <View style={style.musicControlsContainer}>
-          <TouchableOpacity onPress={()=>{}}>
+          <TouchableOpacity onPress={playSound}>
               <Ionicons name='play-skip-back-outline' size={35} color='yellow' />
           </TouchableOpacity>
 
@@ -120,7 +130,7 @@ const ScheduleScreen = () => {
               <Ionicons name='ios-pause-circle' size={75} color='yellow' />
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>{}}>
+          <TouchableOpacity onPress={playSound2}>
               <Ionicons name='play-skip-forward-outline' size={35} color='yellow' />
           </TouchableOpacity>
         </View>

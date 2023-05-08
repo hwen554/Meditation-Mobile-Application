@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View, TouchableOpacity,Image,Animated,ImageBackground} from 'react-native'
-import React, {useState} from 'react'
+import { StyleSheet, Text, View, TouchableOpacity,Image,Animated,ImageBackground,Alert} from 'react-native'
+import React, {useEffect, useState} from 'react'
+
 import {Audio} from 'expo-av'
 
 const image = {uri: 'https://reactjs.org/logo-og.png'};
@@ -9,8 +10,42 @@ const WoodenFishScreen = () => {
   const [sound,setSound] = React.useState()
   const animation = new Animated.Value(0);
   const inputRange = [0, 1];
-  const outputRange = [1, 0.7];
+  const outputRange = [1, 0.76];
   const scale = animation.interpolate({inputRange, outputRange});
+  const [alertText, setAlert] = useState(null);
+
+  useEffect(()=>{
+           
+    if(alertText)
+      {
+       Alert.alert(
+         "Alert Title",
+          alertText);
+       }
+            
+      setTimeout(() => {
+          setAlert(null);
+         }, 1000);
+     },[alertText]);
+  const simpleAlert=()=>{
+    Alert.alert('Merit +1')
+    
+  }
+  // useEffect=(()=>{
+  //   if(alertText)
+  //     {
+  //      Alert.alert(
+  //        "Merit +1",
+  //         alertText);
+  //      }
+            
+  //     setTimeout(() => {
+  //         setAlert(null);
+  //        }, 2000);
+  // },[alertText]);
+  
+
+
 
   const onPressIn = () => {
     Animated.spring(animation, {
@@ -34,6 +69,7 @@ const WoodenFishScreen = () => {
     console.log('Playing Sound');
     await sound.playAsync();
     onPress()
+    // setAlert("Hi, I am an alert")
   }
 
   React.useEffect(() => {
@@ -48,7 +84,7 @@ const WoodenFishScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.countContainer}>
-          <Text>今日功德:{count}</Text>
+          <Text>Today's Merit：{count}</Text>
       </View>
       <ImageBackground source={require('../assets/Images/black.jpeg')} resizeMode="cover" style={styles.image}>
         <Animated.View style={[styles.button, {transform: [{scale}]}]}>

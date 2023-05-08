@@ -1,17 +1,21 @@
 import {
   Text,
+  StyleSheet,
   View,
   SafeAreaView,
   StatusBar,
   Image,
   TextInput,
   FlatList,
-  TouchableOpacity
+  TouchableOpacity,
+  ImageBackground
 } from 'react-native'
 import React from 'react'
 import { ViewPropTypes } from 'deprecated-react-native-prop-types'
 import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
 import {COLORS, SIZES} from '../constants';
+
+
 let exercise = [
   {
     title: 'Breathing',
@@ -199,6 +203,9 @@ const ExerciseHomeScreen = ({navigation}) => {
 
   return (
     <SafeAreaView style={{flex: 1, position: 'relative'}}>
+    <ImageBackground source={require('../assets/Images/searchbg.png')} resizeMode="cover" style={styles.image}>
+
+    
       <StatusBar
         backgroundColor={COLORS.accent + '30'}
         barStyle="dark-content"
@@ -212,14 +219,14 @@ const ExerciseHomeScreen = ({navigation}) => {
           backgroundColor: COLORS.accent + '20',
           position: 'relative',
         }}>
-        <Image
+        {/* <Image
           source={require('../assets/Images/BgOrange.png')}
           style={{
             position: 'absolute',
             top: 10,
             left: -50,
           }}
-        />
+        /> */}
         <View
           style={{
             flexDirection: 'row',
@@ -352,6 +359,7 @@ const ExerciseHomeScreen = ({navigation}) => {
         keyExtractor={item => item.title}
         renderItem={({item}) => <ExerciseItem3 exercise3={item} />}
       />
+    </ImageBackground>
     </SafeAreaView>
   );
 };
@@ -363,5 +371,12 @@ const ExerciseHomeScreen = ({navigation}) => {
 //   )
 // }
 
+const styles = StyleSheet.create({
+  image:{
+    flex:1,
+    width:'100%',
+    justifyContent:'center'
+  }
+})
 export default ExerciseHomeScreen
 
