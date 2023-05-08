@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Avatar } from '@rneui/base';
 import myAvatar from '../assets/Images/cat.jpg';
-import CountContext from '../screens/CountContext'
+import CountContext from '../screens/CountContext';
+import LoginScreen from '../auth/LoginScreen';
+import RegisterScreen from '../auth/RegisterScreen';
 
 export default class ProfilePage extends Component {
   static contextType = CountContext;
@@ -27,6 +29,16 @@ export default class ProfilePage extends Component {
           <Text style={styles.introTitle}>Usage</Text>
           <Text style={styles.introText}>Today: {dailyCount} times</Text>
           <Text style={styles.introText}>This month: {monthlyCount} times</Text>
+        </View>
+
+        {/* buttons */}
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('LoginScreen')}>
+            <Text style={styles.buttonText}>Log in</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('RegisterScreen')}>
+            <Text style={styles.buttonText}>Register</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -71,5 +83,20 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#333',
     lineHeight: 30,
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginVertical: 20,
+  },
+  button: {
+    backgroundColor: '#3b5998',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 5,
+  },
+  buttonText: {
+    fontSize: 18,
+    color: '#FFFFFF',
   },
 });

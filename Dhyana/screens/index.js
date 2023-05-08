@@ -7,6 +7,8 @@ import Session1Screen from './Session1Screen';
 import Session2Screen from './Session2Screen';
 import Session3Screen from './Session3Screen';
 import WoodenFishScreen from './WoodenFishScreen';
+import LoginScreen from '../auth/LoginScreen';
+import RegisterScreen from '../auth/RegisterScreen';
 
 export {
   ExerciseHomeScreen,
@@ -18,4 +20,6 @@ export {
   Session2Screen,
   Session3Screen,
   WoodenFishScreen,
+  LoginScreen,
+  RegisterScreen,
 };
