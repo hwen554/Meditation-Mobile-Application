@@ -12,6 +12,7 @@ import {
   Session2Screen,
   Session3Screen,
   WoodenFishScreen,
+  MusicScreen,
 } from '../screens';
 import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
 import {COLORS} from '../constants';
@@ -97,7 +98,7 @@ const BottomTabNavigator = () => {
       })}>
       <Tab.Screen name="Schedule" component={ScheduleScreen} />
       <Tab.Screen name="AllExercises" component={StackNavigator} options={{headerShown:false}} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
+      <Tab.Screen name="Settings" component={MusicScreen} />
     </Tab.Navigator>
   );
 };
