@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Avatar } from '@rneui/base';
@@ -5,10 +6,20 @@ import myAvatar from '../assets/Images/cat.jpg';
 import CountContext from '../screens/CountContext';
 import LoginScreen from '../auth/LoginScreen';
 import RegisterScreen from '../auth/RegisterScreen';
+=======
+import React from 'react';
+import {View, Text} from 'react-native';
+>>>>>>> parent of 2e611138 (Record the Count of WoodenFish)
 
-export default class ProfilePage extends Component {
-  static contextType = CountContext;
+const SettingsScreen = () => {
+  return (
+    <View>
+      <Text>SettingsScreen</Text>
+    </View>
+  );
+};
 
+<<<<<<< HEAD
   render() {
     const { dailyCount, monthlyCount } = this.context;
     return (
@@ -100,3 +111,6 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
 });
+=======
+export default SettingsScreen;
+>>>>>>> parent of 2e611138 (Record the Count of WoodenFish)
