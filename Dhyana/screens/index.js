@@ -8,6 +8,7 @@ import Session2Screen from './Session2Screen';
 import Session3Screen from './Session3Screen';
 import WoodenFishScreen from './WoodenFishScreen';
 import MusicScreen from './MusicScreen';
+import MusicDetailsScreen from './MusicDetailsScreen';
 export {
   ExerciseHomeScreen,
   ExerciseDetailsScreen,
@@ -19,4 +20,5 @@ export {
   Session3Screen,
   WoodenFishScreen,
   MusicScreen,
+  MusicDetailsScreen,
 };
