@@ -1,61 +1,13 @@
-import { Text, View,StyleSheet, Dimensions,Animated,ImageBackground } from 'react-native'
-import React, {useRef,useState} from 'react'
+import { Text, View,StyleSheet, Dimensions,Animated } from 'react-native'
+import React, {useRef} from 'react'
 import { StatusBar } from 'expo-status-bar'
-import {
-  responsiveHeight,
-  responsiveWidth,
-  responsiveFontSize
-} from 'react-native-responsive-dimensions'
+
 const {width, height} = Dimensions.get('window')
-const circleWidth = responsiveWidth(99) 
+const circleWidth = width/2
 {/*呼吸页面*/}
-
-
 const ExerciseDetailsScreen = () => {
-  const [play, setPlay] = useState(false);
-  
-  const [timer,setTimer] = useState(0)
-  const [isActive,setIsActive] = useState(false)
-  const [isPaused,setIsPaused] = useState(false)
-  const countRef = useRef(null)
-
-  const handleStart = () => {
-    setIsActive(true);
-    setIsPaused(false);
-    countRef.current = setInterval(() => {
-      setTimer((timer) => timer + 1);
-    }, 1000);
-  }
-
-  const handlePause = () => {
-    clearInterval(countRef.current);
-    setIsPaused(true);
-  }
-
-  const handleContinue = () => {
-    setIsPaused(false);
-    countRef.current = setInterval(() => {
-      setTimer((timer) => timer + 1);
-    }, 1000);
-  }
-
-  const handleReset = () => {
-    clearInterval(countRef.current);
-    setIsActive(false);
-    setIsPaused(false);
-    setTimer(0);
-  }
-
-  const formatTime = (time) => {
-    const minutes = Math.floor(time / 60);
-    const seconds = time % 60;
-    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-  }
-
   const move = useRef(new Animated.Value(0)).current
   const textOpacity = useRef(new Animated.Value(1)).current
-
-  
   Animated.loop(
     Animated.sequence([
       Animated.parallel([
@@ -86,8 +38,6 @@ const ExerciseDetailsScreen = () => {
       ]),
     ])
   ).start();
-
-
   const translate = move.interpolate({
     inputRange: [0, 1],
     outputRange: [0, circleWidth / 6],
@@ -98,9 +48,6 @@ const ExerciseDetailsScreen = () => {
   });
   return (
     <View style={styles.container}>
-    <ImageBackground source={require('../assets/Images/mainbg.jpeg')} resizeMode="cover" style={styles.image}>
-
-    
       <Animated.View
         style={{
           width: circleWidth,
@@ -152,7 +99,6 @@ const ExerciseDetailsScreen = () => {
               backgroundColor: "purple",
               width: circleWidth,
               height: circleWidth,
-              
               borderRadius: circleWidth / 2,
               ...StyleSheet.absoluteFill,
               transform: [
@@ -166,7 +112,6 @@ const ExerciseDetailsScreen = () => {
           ></Animated.View>
         );
       })}
-    </ImageBackground>
     </View>
   );
 }
@@ -177,14 +122,9 @@ const styles = StyleSheet.create({
     // backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    // left: width / 4,
-    // top: height / 4,
+    left: width / 4,
+    top: height / 4,
   },
-  image:{
-    flex:1,
-    width:"100%",
-    justifyContent:'center'
-  }
 });
 
 

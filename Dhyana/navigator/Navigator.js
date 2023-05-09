@@ -12,7 +12,6 @@ import {
   Session2Screen,
   Session3Screen,
   WoodenFishScreen,
-  MusicScreen,
 } from '../screens';
 import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
 import {COLORS} from '../constants';
@@ -28,7 +27,7 @@ const StackNavigator = () => {
       />
       <Stack.Screen 
         name="ScheduleScreen" 
-        component={ScheduleScreen} options={{ headerShown: false }}/>
+        component={ScheduleScreen}/>
       <Stack.Screen
         name="MeditationScreen"
         component={MeditationScreen}/>
@@ -80,7 +79,7 @@ const BottomTabNavigator = () => {
           const labels = {
             Schedule: 'Main',
             AllExercises: 'Search',
-            Settings: 'User',
+            Settings: 'Profilo',
           };
 
           return (
@@ -98,7 +97,7 @@ const BottomTabNavigator = () => {
       })}>
       <Tab.Screen name="Schedule" component={ScheduleScreen} />
       <Tab.Screen name="AllExercises" component={StackNavigator} options={{headerShown:false}} />
-      <Tab.Screen name="Settings" component={MusicScreen} />
+      <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
   );
 };

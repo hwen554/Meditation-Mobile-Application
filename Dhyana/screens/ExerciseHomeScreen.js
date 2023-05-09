@@ -1,25 +1,21 @@
 import {
   Text,
-  StyleSheet,
   View,
   SafeAreaView,
   StatusBar,
   Image,
   TextInput,
   FlatList,
-  TouchableOpacity,
-  ImageBackground
+  TouchableOpacity
 } from 'react-native'
 import React from 'react'
 import { ViewPropTypes } from 'deprecated-react-native-prop-types'
 import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
 import {COLORS, SIZES} from '../constants';
-
-
 let exercise = [
   {
     title: 'Breathing',
-    image: require('../assets/Images/breath.jpeg'),
+    image: require('../assets/Images/Exercise1.png'),
     subTitle:
       'Live happier and healthier by learning the fundamentals of diet recommendation',
     duration: '5-20 MIN Course',
@@ -46,15 +42,15 @@ let exercise = [
  let exercise1 =[
   {
     title:'Mindfulness',
-    image: require('../assets/Images/mindfulness.jpeg'),
+    image: require('../assets/Images/Exercise2.png'),
     subTitle:'Live happier and healthier by learning the fundamentals of Yoga',
     duration: '5-20 MIN Course',
   },
  ]
  let exercise2 =[
   {
-    title:'Wooden Fish',
-    image: require('../assets/Images/woodenfish.jpeg'),
+    title:'Taichi',
+    image: require('../assets/Images/Exercise3.png'),
     subTitle:'Live happier and healthier by learning the fundamentals of diet recommendation',
     duration: '5-20 MIN Course',
   },
@@ -63,7 +59,7 @@ let exercise = [
  let exercise3=[
   {
     title:'Music',
-    image: require('../assets/Images/music.jpeg'),
+    image: require('../assets/Images/Exercise4.png'),
     subTitle:'Live happier and healthier by learning the fundamentals of diet recommendation',
     duration: '5-20 MIN Course',
   }
@@ -203,9 +199,6 @@ const ExerciseHomeScreen = ({navigation}) => {
 
   return (
     <SafeAreaView style={{flex: 1, position: 'relative'}}>
-    <ImageBackground source={require('../assets/Images/searchbg.png')} resizeMode="cover" style={styles.image}>
-
-    
       <StatusBar
         backgroundColor={COLORS.accent + '30'}
         barStyle="dark-content"
@@ -219,14 +212,14 @@ const ExerciseHomeScreen = ({navigation}) => {
           backgroundColor: COLORS.accent + '20',
           position: 'relative',
         }}>
-        {/* <Image
+        <Image
           source={require('../assets/Images/BgOrange.png')}
           style={{
             position: 'absolute',
-            top: 10,
+            top: 60,
             left: -50,
           }}
-        /> */}
+        />
         <View
           style={{
             flexDirection: 'row',
@@ -264,7 +257,7 @@ const ExerciseHomeScreen = ({navigation}) => {
         <Text style={{fontSize: 30, lineHeight: 45}}>
           Good Morning Gavin
         </Text>
-        {/* <View
+        <View
           style={{
             flexDirection: 'row',
             alignItems: 'center',
@@ -280,7 +273,7 @@ const ExerciseHomeScreen = ({navigation}) => {
             style={{marginHorizontal: 20}}
           />
           <TextInput placeholder="Search" style={{flex: 1}} />
-        </View> */}
+        </View>
         <View
           style={{
             width: 60,
@@ -359,7 +352,6 @@ const ExerciseHomeScreen = ({navigation}) => {
         keyExtractor={item => item.title}
         renderItem={({item}) => <ExerciseItem3 exercise3={item} />}
       />
-    </ImageBackground>
     </SafeAreaView>
   );
 };
@@ -371,12 +363,5 @@ const ExerciseHomeScreen = ({navigation}) => {
 //   )
 // }
 
-const styles = StyleSheet.create({
-  image:{
-    flex:1,
-    width:'100%',
-    justifyContent:'center'
-  }
-})
 export default ExerciseHomeScreen
 
