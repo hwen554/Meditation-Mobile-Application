@@ -13,10 +13,7 @@ import {
   Session3Screen,
   WoodenFishScreen,
   MusicScreen,
-<<<<<<< HEAD
   MusicDetailsScreen,
-=======
->>>>>>> parent of 2e611138 (Record the Count of WoodenFish)
 } from '../screens';
 import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
 import {COLORS} from '../constants';
@@ -105,7 +102,7 @@ const BottomTabNavigator = () => {
       })}>
       <Tab.Screen name="Schedule" component={MusicScreen} />
       <Tab.Screen name="AllExercises" component={StackNavigator} options={{headerShown:false}} />
-      <Tab.Screen name="Settings" component={MusicScreen} />
+      <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
   );
 };

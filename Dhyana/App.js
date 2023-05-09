@@ -2,7 +2,6 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import BottomTabNavigator from './navigator/Navigator';
-<<<<<<< HEAD
 import CountContext from './screens/CountContext';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SettingsScreen } from './screens';
@@ -16,14 +15,28 @@ import RegisterScreen from './screens';
 //     </NavigationContainer>
 //   );
 // };
-=======
->>>>>>> parent of 2e611138 (Record the Count of WoodenFish)
 
 const App = () => {
+  const [dailyCount, setDailyCount] = React.useState(0);
+  const [monthlyCount, setMonthlyCount] = React.useState(0);
+
+  const incrementCount = () => {
+    setDailyCount(dailyCount + 1);
+    setMonthlyCount(monthlyCount + 1);
+  };
+
   return (
-    <NavigationContainer>
-      <BottomTabNavigator />
-    </NavigationContainer>
+    <CountContext.Provider
+      value={{
+        dailyCount,
+        monthlyCount,
+        incrementCount,
+      }}
+    >
+      <NavigationContainer>
+        <BottomTabNavigator />
+      </NavigationContainer>
+    </CountContext.Provider>
   );
 };
 
