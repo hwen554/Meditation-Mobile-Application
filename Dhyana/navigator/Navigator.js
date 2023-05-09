@@ -13,7 +13,6 @@ import {
   Session3Screen,
   WoodenFishScreen,
   MusicScreen,
-  MusicDetailsScreen,
 } from '../screens';
 import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
 import {COLORS} from '../constants';
@@ -45,9 +44,6 @@ const StackNavigator = () => {
       <Stack.Screen
         name="WoodenFishScreen"
         component={WoodenFishScreen}/>
-      <Stack.Screen
-        name="MusicDetailsScreen"
-        component={MusicDetailsScreen}/>
     </Stack.Navigator>
   );
 };
@@ -65,9 +61,9 @@ const BottomTabNavigator = () => {
       screenOptions={({route}) => ({
         tabBarIcon: ({focused}) => {
           const icons = {
-            Schedule: 'home',
-            AllExercises: 'search',
-            Settings: 'user',
+            Schedule: 'calendar-alt',
+            AllExercises: 'dumbbell',
+            Settings: 'cog',
           };
           return (
             <FontAwesome5Icons
@@ -100,9 +96,9 @@ const BottomTabNavigator = () => {
           );
         },
       })}>
-      <Tab.Screen name="Schedule" component={MusicScreen} />
+      <Tab.Screen name="Schedule" component={ScheduleScreen} />
       <Tab.Screen name="AllExercises" component={StackNavigator} options={{headerShown:false}} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
+      <Tab.Screen name="Settings" component={MusicScreen} />
     </Tab.Navigator>
   );
 };
