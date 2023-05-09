@@ -13,7 +13,10 @@ import {
   Session3Screen,
   WoodenFishScreen,
   MusicScreen,
+<<<<<<< HEAD
   MusicDetailsScreen,
+=======
+>>>>>>> parent of 2e611138 (Record the Count of WoodenFish)
 } from '../screens';
 import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
 import {COLORS} from '../constants';
