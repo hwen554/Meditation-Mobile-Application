@@ -8,10 +8,7 @@ import Session2Screen from './Session2Screen';
 import Session3Screen from './Session3Screen';
 import WoodenFishScreen from './WoodenFishScreen';
 import MusicScreen from './MusicScreen';
-<<<<<<< HEAD
 import MusicDetailsScreen from './MusicDetailsScreen';
-=======
->>>>>>> parent of 2e611138 (Record the Count of WoodenFish)
 export {
   ExerciseHomeScreen,
   ExerciseDetailsScreen,
@@ -23,8 +20,5 @@ export {
   Session3Screen,
   WoodenFishScreen,
   MusicScreen,
-<<<<<<< HEAD
   MusicDetailsScreen,
-=======
->>>>>>> parent of 2e611138 (Record the Count of WoodenFish)
 };
