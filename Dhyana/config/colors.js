@@ -1,10 +1,12 @@
 export default {
-    primary: "#D17842",
-    secondary: "#52555A",
-    dark: "#0C0F14",
-    "dark-light": "#2E333E",
-    light: "#4D4F52",
-    white: "#fff",
-    "white-smoke": "#b5b5b5",
-    black:'#13151a'
+  white: '#FFF',
+  dark: '#000',
+  primary: '#04555c',
+  secondary: '#e1e8e9',
+  light: '#f9f9f9',
+  grey: '#dddedd',
+  red: 'red',
+  orange: '#f5a623',
   };
+
+
