@@ -1,5 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity,Image,Animated,ImageBackground,Alert} from 'react-native'
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
+import CountContext from "../screens/CountContext"
+
 
 import {Audio} from 'expo-av'
 
@@ -13,6 +15,8 @@ const WoodenFishScreen = () => {
   const outputRange = [1, 0.76];
   const scale = animation.interpolate({inputRange, outputRange});
   const [alertText, setAlert] = useState(null);
+  const {incrementCount} = useContext(CountContext);
+
 
   useEffect(()=>{
            
@@ -70,6 +74,7 @@ const WoodenFishScreen = () => {
     await sound.playAsync();
     onPress()
     // setAlert("Hi, I am an alert")
+    incrementCount();
   }
 
   React.useEffect(() => {
