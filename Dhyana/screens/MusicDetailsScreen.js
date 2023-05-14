@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect,useRef,useState }from 'react';
 import {
   ImageBackground,
   SafeAreaView,
@@ -6,12 +6,65 @@ import {
   StyleSheet,
   View,
   Text,
+  TouchableOpacity
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../config/colors';
+import {Audio} from 'expo-av'
 
+let place1 =[
+    {
+        id: 1,
+        title: 'How long',
+        artist: 'Bobby Richards',
+        artwork: require('../assets/Images/img1.jpeg'),
+        data:require('../assets/howlong.mp3'),
+    },
+   ]
+   let place2 =[
+    {
+        id: 2,
+        title: 'How long',
+        artist: 'Bobby Richards',
+        artwork: require('../assets/Images/img1.jpeg'),
+        data:require('../assets/yinmai.mp3'),
+    },
+   ]
 const MusicDetailsScreen = ({navigation, route}) => {
-  const place = route.params;  
+  const place = route.params; 
+//   console.log(place) 
+  const [sound,setSound] = React.useState()
+  
+  const playSound= async()=>{
+    console.log('Loading music')
+    let place1 =[
+        {
+            id: 1,
+            title: 'How long',
+            artist: 'Bobby Richards',
+            artwork: require('../assets/Images/img1.jpeg'),
+            data:require('../assets/howlong.mp3'),
+        },
+       ]
+    console.log(place.id)
+    console.log(place.data)
+    if (place.id===1){
+        const {sound} = await Audio.Sound.createAsync(require('../assets/howlong.mp3'))
+        setSound(sound);
+        console.log('Playing Sound');
+        await sound.playAsync();
+    }else if( place.id===3){
+        const {sound} = await Audio.Sound.createAsync(require('../assets/yinmai.mp3'))
+        setSound(sound);
+        console.log('Playing Sound');
+        await sound.playAsync();
+    }else{
+        console.log('No Sound Found')
+        
+    }
+    
+  }
+
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
       <StatusBar translucent backgroundColor="rgba(0,0,0,0)" />
@@ -87,10 +140,9 @@ const MusicDetailsScreen = ({navigation, route}) => {
           </Text>
         </View>
         <View style={style.bookNowBtn}>
-          <Text 
-            style={{color: COLORS.primary, fontSize: 16, fontWeight: 'bold'}}>
-            Play Now
-          </Text>
+          <TouchableOpacity onPress={playSound} >
+            
+          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>

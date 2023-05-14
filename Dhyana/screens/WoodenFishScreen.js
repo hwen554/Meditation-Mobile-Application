@@ -86,7 +86,7 @@ const WoodenFishScreen = () => {
       <View style={styles.countContainer}>
           <Text>Today's Merit：{count}</Text>
       </View>
-      <ImageBackground source={require('../assets/Images/black.jpeg')} resizeMode="cover" style={styles.image}>
+      <ImageBackground source={require('../assets/Images/fish.jpeg')} resizeMode="cover" style={styles.image}>
         <Animated.View style={[styles.button, {transform: [{scale}]}]}>
           
           <TouchableOpacity
@@ -95,7 +95,7 @@ const WoodenFishScreen = () => {
             onPressIn={onPressIn}
             onPress={playSound}
             onPressOut={onPressOut}>
-            <Image style={styles.woodenFishSize}source={require('../assets/Images/woodenfish.png')}/>
+            <Image style={styles.woodenFishSize} ource={require('../assets/Images/woodenfish.png')}/>
           </TouchableOpacity>
         </Animated.View>
       </ImageBackground>
@@ -126,7 +126,8 @@ const styles = StyleSheet.create({
   },
   woodenFishSize:{
     height:160,
-    width:210
+    width:210,
+    marginTop:190,
   },
   image:{
     flex:1,
