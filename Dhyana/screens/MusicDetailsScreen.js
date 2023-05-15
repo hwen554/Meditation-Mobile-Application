@@ -12,24 +12,24 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../config/colors';
 import {Audio} from 'expo-av'
 
-let place1 =[
-    {
-        id: 1,
-        title: 'How long',
-        artist: 'Bobby Richards',
-        artwork: require('../assets/Images/img1.jpeg'),
-        data:require('../assets/howlong.mp3'),
-    },
-   ]
-   let place2 =[
-    {
-        id: 2,
-        title: 'How long',
-        artist: 'Bobby Richards',
-        artwork: require('../assets/Images/img1.jpeg'),
-        data:require('../assets/yinmai.mp3'),
-    },
-   ]
+// let place1 =[
+//     {
+//         id: 1,
+//         title: 'How long',
+//         artist: 'Bobby Richards',
+//         artwork: require('../assets/Images/img1.jpeg'),
+//         data:require('../assets/howlong.mp3'),
+//     },
+//    ]
+//    let place2 =[
+//     {
+//         id: 2,
+//         title: 'How long',
+//         artist: 'Bobby Richards',
+//         artwork: require('../assets/Images/img1.jpeg'),
+//         data:require('../assets/yinmai.mp3'),
+//     },
+//    ]
 const MusicDetailsScreen = ({navigation, route}) => {
   const place = route.params; 
 //   console.log(place) 
@@ -37,15 +37,15 @@ const MusicDetailsScreen = ({navigation, route}) => {
   
   const playSound= async()=>{
     console.log('Loading music')
-    let place1 =[
-        {
-            id: 1,
-            title: 'How long',
-            artist: 'Bobby Richards',
-            artwork: require('../assets/Images/img1.jpeg'),
-            data:require('../assets/howlong.mp3'),
-        },
-       ]
+    // let place1 =[
+    //     {
+    //         id: 1,
+    //         title: 'How long',
+    //         artist: 'Bobby Richards',
+    //         artwork: require('../assets/Images/img1.jpeg'),
+    //         data:require('../assets/howlong.mp3'),
+    //     },
+    // ]
     console.log(place.id)
     console.log(place.data)
     if (place.id===1){
@@ -53,7 +53,12 @@ const MusicDetailsScreen = ({navigation, route}) => {
         setSound(sound);
         console.log('Playing Sound');
         await sound.playAsync();
-    }else if( place.id===3){
+    }else if( place.id===2){
+        const {sound} = await Audio.Sound.createAsync(require('../assets/yinmai.mp3'))
+        setSound(sound);
+        console.log('Playing Sound');
+        await sound.playAsync();
+    }else if( place.id == 3){
         const {sound} = await Audio.Sound.createAsync(require('../assets/yinmai.mp3'))
         setSound(sound);
         console.log('Playing Sound');

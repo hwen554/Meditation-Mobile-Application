@@ -48,6 +48,9 @@ const StackNavigator = () => {
       <Stack.Screen
         name="MusicDetailsScreen"
         component={MusicDetailsScreen}/>
+      <Stack.Screen
+        name="MusicScreen"
+        component={MusicScreen}/>
     </Stack.Navigator>
   );
 };

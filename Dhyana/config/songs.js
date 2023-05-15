@@ -13,6 +13,7 @@ const songs = [
       title: '阴霾',
       artist: 'josh pan',
       artwork: require('../assets/Images/img2.jpeg'),
+      data:require('../assets/yinmai.mp3'),
       details: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat nisl vel pretium lectus quam id leo. Velit euismod in pellentesque massa placerat duis ultricies lacus sed. Justo laoreet sit amet cursus sit.`,
       url: 'https://firebasestorage.googleapis.com/v0/b/t2-project-c26f3.appspot.com/o/%E9%AB%98%E6%97%AD%20_%20Subs%E5%BC%A0%E6%AF%85%E6%88%90%20-%20%E9%98%B4%E9%9C%BE.mp3?alt=media&token=8558b8b7-1ffc-454d-869f-95c39d94c691',
     },
