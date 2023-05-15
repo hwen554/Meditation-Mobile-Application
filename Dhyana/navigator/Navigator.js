@@ -13,10 +13,12 @@ import {
   Session3Screen,
   WoodenFishScreen,
   MusicScreen,
-  MusicDetailsScreen
+  MusicDetailsScreen,
 } from '../screens';
 import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
 import {COLORS} from '../constants';
+import LoginScreen from '../auth/LoginScreen';
+import RegisterScreen from '../auth/RegisterScreen';
 
 const Stack = createStackNavigator();
 const StackNavigator = () => {
@@ -51,9 +53,31 @@ const StackNavigator = () => {
       <Stack.Screen
         name="MusicScreen"
         component={MusicScreen}/>
+      <Stack.Screen name="Auth" component={AuthStackNavigator} options={{ headerShown: false }}/>
+      <Stack.Screen name="BottomTabNavigator" component={BottomTabNavigator} />
     </Stack.Navigator>
   );
 };
+
+const AuthStack = createStackNavigator();
+const AuthStackNavigator = () => {
+  return (
+    <AuthStack.Navigator>
+      <AuthStack.Screen
+        name="Login"
+        component={LoginScreen}
+        options={{title: 'Login'}}
+      />
+      <AuthStack.Screen
+        name="Register"
+        component={RegisterScreen}
+        options={{title: 'Register'}}
+      />
+    </AuthStack.Navigator>
+  );
+};
+
+
 
 const Tab = createBottomTabNavigator();
 const BottomTabNavigator = () => {

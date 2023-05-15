@@ -141,7 +141,7 @@ const MusicDetailsScreen = ({navigation, route}) => {
               color: COLORS.grey,
               marginLeft: 2,
             }}>
-            /PER DAY
+            {/* /PER DAY */}
           </Text>
         </View>
         <View style={style.bookNowBtn}>

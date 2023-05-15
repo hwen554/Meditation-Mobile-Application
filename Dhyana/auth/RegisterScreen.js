@@ -1,25 +1,42 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, Image, Alert } from 'react-native';
+import { View, StyleSheet, Text, Image, Alert} from 'react-native';
 import { Input, Button } from '@rneui/base';
-import RegisterScreen from './RegisterScreen';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from "../firebase"
+import { auth, db } from '../firebase';
+import { getAuth ,createUserWithEmailAndPassword } from 'firebase/auth';
+import LoginScreen from './LoginScreen';
 
-
-const LoginScreen = ({ navigation }) => {
+const RegisterScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState("");
+ 
+  // const signUp = async () => {
+  //   try {
+  //     await createUserWithEmailAndPassword(auth, email, password);
+  //     console.log(email);
+  //     navigation.navigate("LoginScreen");
+  //   } catch (err) {
+  //     setError(err.message);
+  //   }
+  // };
 
-  const handleLogin = async () => {
+  const handleRegister = async () => {
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      Alert.alert('Login success');
-      navigation.navigate('Settings');
+      const { user } = await createUserWithEmailAndPassword(auth, email, password);
+  
+      // Save the user data to Firestore
+      await db.collection('users').doc(user.uid).set({
+        email: user.email,
+      });
+  
+      Alert.alert('Register success');
+      navigation.navigate('LoginScreen');
     } catch (error) {
-      console.error('Login failed', error);
-      Alert.alert('Login failed', error.message);
+      console.error('Register failed', error);
+      Alert.alert('Register failed', error.message);
     }
   };
+  
 
   return (
     <View style={styles.container}>
@@ -27,7 +44,7 @@ const LoginScreen = ({ navigation }) => {
         style={styles.logo}
         source={require('../assets/Images/cat.jpg')}
       />
-      <Text style={styles.title}>Login</Text>
+      <Text style={styles.title}>Register</Text>
       <Input
         label="email"
         onChangeText={setEmail}
@@ -47,16 +64,16 @@ const LoginScreen = ({ navigation }) => {
         leftIcon={{ type: 'font-awesome', name: 'lock', color: '#6D8299' }}
       />
       <Button
-        title="Login"
-        onPress={handleLogin}
+        title="Register"
+        onPress={handleRegister}
         containerStyle={styles.buttonContainer}
         buttonStyle={styles.button}
       />
       <Button
-        title="No account? register"
+        title="Already have an account? Login"
         type="clear"
-        onPress={() => navigation.navigate('Register')}
-        titleStyle={styles.registerText}
+        onPress={() => navigation.navigate('Login')}
+        titleStyle={styles.loginText}
       />
     </View>
   );
@@ -92,9 +109,9 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: '#1F8ECD',
   },
-  registerText: {
+  loginText: {
     color: '#6D8299',
   },
 });
 
-export default LoginScreen;
+export default RegisterScreen;
