@@ -146,7 +146,7 @@ const MusicDetailsScreen = ({navigation, route}) => {
         </View>
         <View style={style.bookNowBtn}>
           <TouchableOpacity onPress={playSound} >
-            
+            <Text>play</Text>
           </TouchableOpacity>
         </View>
       </View>
