@@ -6,6 +6,7 @@ import { getAuth ,createUserWithEmailAndPassword } from 'firebase/auth';
 import LoginScreen from './LoginScreen';
 
 const RegisterScreen = ({ navigation }) => {
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState("");
@@ -45,6 +46,15 @@ const RegisterScreen = ({ navigation }) => {
         source={require('../assets/Images/cat.jpg')}
       />
       <Text style={styles.title}>Register</Text>
+      <Input
+        label="Username"
+        onChangeText={setUsername}
+        value={username}
+        keyboardType="default"
+        labelStyle={styles.label}
+        inputStyle={styles.input}
+        leftIcon={{ type: 'font-awesome', name: 'user', color: '#6D8299' }}
+      />
       <Input
         label="email"
         onChangeText={setEmail}
