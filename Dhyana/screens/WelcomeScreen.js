@@ -25,7 +25,7 @@ const WelcomeScreen = ({navigation}) => {
             peace with us
           </Text>
           <Text style={{color: COLORS.white, lineHeight: 25, marginTop: 15}}>
-            Find you mindfullness in Dhyana
+            Find your mindfullness in Dhyana
           </Text>
           <TouchableOpacity
             activeOpacity={0.8}
