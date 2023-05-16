@@ -89,7 +89,7 @@ const WoodenFishScreen = () => {
       <View style={styles.countContainer}>
           <Text>Today's Merit：{count}</Text>
       </View>
-      <ImageBackground source={require('../assets/Images/black.jpeg')} resizeMode="cover" style={styles.image}>
+      <ImageBackground source={require('../assets/Images/fish.jpeg')} resizeMode="cover" style={styles.image}>
         <Animated.View style={[styles.button, {transform: [{scale}]}]}>
           
           <TouchableOpacity

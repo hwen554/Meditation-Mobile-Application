@@ -59,7 +59,7 @@ const StackNavigator = () => {
         component={MusicDetailsScreen}/>
       <Stack.Screen
         name="MusicScreen"
-        component={MusicScreen}/>
+        component={MusicScreen} options={{headerShown:false}}/>
       <Stack.Screen name="Auth" component={AuthStackNavigator} options={{ headerShown: false }}/>
       <Stack.Screen name="BottomTabNavigator" component={BottomTabNavigator} />
     </Stack.Navigator>
@@ -134,7 +134,7 @@ const BottomTabNavigator = () => {
           );
         },
       })}>
-      <Tab.Screen name="Schedule" component={MusicScreen} />
+      <Tab.Screen name="Schedule" component={MusicScreen} options={{headerShown:false}} />
       <Tab.Screen name="AllExercises" component={StackNavigator} options={{headerShown:false}} />
       <Tab.Screen name="Settings" component={SettingsScreen} options={{headerShown:false}} />
     </Tab.Navigator>

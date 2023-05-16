@@ -60,14 +60,14 @@ const MusicScreen = ({navigation}) => {
               alignItems: 'flex-end',
             }}>
             <View style={{flexDirection: 'row'}}>
-              <Icon name="place" size={20} color={COLORS.white} />
+              {/* <Icon name="place" size={20} color={COLORS.white} /> */}
               <Text style={{marginLeft: 5, color: COLORS.white}}>
                 {/* {place.location} */}
               </Text>
             </View>
             <View style={{flexDirection: 'row'}}>
               <Icon name="star" size={20} color={COLORS.white} />
-              <Text style={{marginLeft: 5, color: COLORS.white}}>5.0</Text>
+              <Text style={{marginLeft: 5, color: COLORS.white}}></Text>
             </View>
           </View>
         </ImageBackground>
@@ -95,7 +95,7 @@ const MusicScreen = ({navigation}) => {
           }}>
           <View style={{width: '100%', flexDirection: 'row', marginTop: 10}}>
             <View style={{flexDirection: 'row'}}>
-              <Icon name="place" size={22} color={COLORS.white} />
+              {/* <Icon name="place" size={22} color={COLORS.white} /> */}
               <Text style={{color: COLORS.white, marginLeft: 5}}>
                 {/* {place.location} */}
               </Text>
@@ -172,7 +172,7 @@ const style = StyleSheet.create({
     backgroundColor: COLORS.primary,
   },
   headerTitle: {
-    color: COLORS.white,
+    color: COLORS.black,
     fontWeight: 'bold',
     fontSize: 23,
   },
