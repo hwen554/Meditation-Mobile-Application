@@ -12,9 +12,9 @@ const Session2Screen = () => {
        <Video
         ref={video}
         style={styles.video}
-        source={require('../assets/water2.mp4')}
+        source={require('../assets/clock1.mp4')}
         useNativeControls
-        resizeMode="contain"
+        resizeMode="cover"
         isLooping={true}
         onPlaybackStatusUpdate={setStatus}
       />

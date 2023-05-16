@@ -9,6 +9,7 @@ import Session3Screen from './Session3Screen';
 import WoodenFishScreen from './WoodenFishScreen';
 import MusicScreen from './MusicScreen';
 import MusicDetailsScreen from './MusicDetailsScreen';
+import WelcomeScreen from './WelcomeScreen';
 export {
   ExerciseHomeScreen,
   ExerciseDetailsScreen,
@@ -21,4 +22,6 @@ export {
   WoodenFishScreen,
   MusicScreen,
   MusicDetailsScreen,
+  WelcomeScreen,
+
 };

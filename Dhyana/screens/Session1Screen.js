@@ -14,7 +14,7 @@ const Session1Screen = () => {
         style={styles.video}
         source={require('../assets/fire1.mp4')}
         useNativeControls
-        resizeMode="contain"
+        resizeMode="cover"
         isLooping={true}
         onPlaybackStatusUpdate={setStatus}
       />
