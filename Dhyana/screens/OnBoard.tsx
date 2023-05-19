@@ -13,11 +13,12 @@ import {
   SplashView,
   RelaxView,
   CareView,
-//   MoodDiaryView,
+  MoodDiaryView,
   WelcomeView,
   TopBackSkipView,
-//   CenterNextButton,
+  CenterNextButton,
 } from '../screens/component';
+
 
 const IntroductionAnimationScreen: React.FC = () => {
   const navigation = useNavigation();
@@ -105,14 +106,15 @@ const IntroductionAnimationScreen: React.FC = () => {
 
         <CareView {...{ animationController }} />
 
-        {/* <MoodDiaryView {...{ animationController }} /> */}
+        <MoodDiaryView {...{ animationController }} />
 
         <WelcomeView {...{ animationController }} />
       </Animated.View>
 
       <TopBackSkipView {...{ onBackClick, onSkipClick, animationController }} />
 
-      {/* <CenterNextButton {...{ onNextClick, animationController }} /> */}
+      <CenterNextButton {...{ onNextClick, animationController }} />
+      
     </View>
   );
 };

@@ -135,7 +135,7 @@ const BottomTabNavigator = () => {
           );
         },
       })}>
-      <Tab.Screen name="Schedule" component={MusicScreen} options={{headerShown:false}} />
+      <Tab.Screen name="Schedule" component={ExerciseHomeScreen} options={{headerShown:false}} />
       <Tab.Screen name="AllExercises" component={StackNavigator} options={{headerShown:false}} />
       <Tab.Screen name="Settings" component={SettingsScreen} options={{headerShown:false}} />
     </Tab.Navigator>
