@@ -14,7 +14,8 @@ import {
   WoodenFishScreen,
   MusicScreen,
   MusicDetailsScreen,
-  WelcomeScreen
+  WelcomeScreen,
+  OnBoard
 } from '../screens';
 import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
 import {COLORS} from '../constants';
@@ -24,10 +25,10 @@ import RegisterScreen from '../auth/RegisterScreen';
 const Stack = createStackNavigator();
 const StackNavigator = () => {
   return (
-    <Stack.Navigator initialRouteName={'WelcomeScreen'} >
+    <Stack.Navigator initialRouteName={'OnBoard'} >
       <Stack.Screen
-        name="WelcomeScreen"
-        component={WelcomeScreen}
+        name="OnBoard"
+        component={OnBoard}
         options={{headerShown:false}}
       />
       <Stack.Screen name="ExercisesHomeScreen" component={ExerciseHomeScreen} options={{ headerShown: false }} />

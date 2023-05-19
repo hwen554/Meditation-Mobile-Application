@@ -10,6 +10,7 @@ import WoodenFishScreen from './WoodenFishScreen';
 import MusicScreen from './MusicScreen';
 import MusicDetailsScreen from './MusicDetailsScreen';
 import WelcomeScreen from './WelcomeScreen';
+import OnBoard from './OnBoard';
 export {
   ExerciseHomeScreen,
   ExerciseDetailsScreen,
@@ -23,5 +24,5 @@ export {
   MusicScreen,
   MusicDetailsScreen,
   WelcomeScreen,
-
+  OnBoard
 };
