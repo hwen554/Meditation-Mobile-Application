@@ -1,16 +1,42 @@
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { Component} from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import { Avatar } from '@rneui/base';
 import myAvatar from '../assets/Images/cat.jpg';
 import CountContext from '../screens/CountContext';
 import LoginScreen from '../auth/LoginScreen';
 import RegisterScreen from '../auth/RegisterScreen';
+import { Grid,YAxis} from 'react-native-svg-charts';
+import ExerciseTimeContext from './ExerciseCountContext';
+import { BarChart } from 'react-native-chart-kit';
+// import { BarChart } from 'react-native-chart-kit';
 
 export default class ProfilePage extends Component {
   static contextType = CountContext;
+  static contextType = ExerciseTimeContext;
 
   render() {
     const { dailyCount, monthlyCount } = this.context;
+    const { exerciseTimes } = this.context;
+    const fill = 'rgb(134, 65, 244)';
+    const contentInset = { top: 20, bottom: 20 };
+    const chartConfig = {
+      backgroundGradientFrom: "#1E2923",
+      backgroundGradientFromOpacity: 0,
+      backgroundGradientTo: "#08130D",
+      backgroundGradientToOpacity: 0.5,
+      color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+      strokeWidth: 2, // optional, default 3
+      barPercentage: 0.5
+    };
+    const data = {
+      labels: ['呼吸界面', '音乐界面'],
+      datasets: [
+        {
+          data: [10, 15], //这些数据应该是来自你的状态或者 context 的
+        },
+      ],
+    };
+    
     return (
       <View style={styles.container}>
         {/* avatar section */}
@@ -46,6 +72,18 @@ export default class ProfilePage extends Component {
             <Text style={styles.buttonText}>Register</Text>
           </TouchableOpacity>
         </View>
+
+        {/* bar chart */}
+        <View style={styles.chartContainer}>
+          <BarChart
+            style={{ height: 200 }}
+            data={data}
+            svg={{ fill: 'rgba(134, 65, 244)' }}
+            contentInset={{ top: 30, bottom: 30 }}
+            >       
+            <Grid />
+          </BarChart>
+        </View>  
       </View>
     );
   }
@@ -119,5 +157,9 @@ const styles = StyleSheet.create({
   countText: {
     fontSize: 18,
     color: '#333',
+  },
+  //barchart
+  chartContainer: {
+    marginVertical: 10,
   },
 });
