@@ -7,8 +7,10 @@ import LoginScreen from '../auth/LoginScreen';
 import RegisterScreen from '../auth/RegisterScreen';
 import { Grid,YAxis} from 'react-native-svg-charts';
 import ExerciseTimeContext from './ExerciseCountContext';
-import { BarChart } from 'react-native-chart-kit';
-// import { BarChart } from 'react-native-chart-kit';
+import { BarChart, LineChart,PieChart,ProgressChart,ContributionGraph,StackedBarChart} from 'react-native-chart-kit';
+import { opacity } from 'react-native-redash';
+import { ScrollView } from 'react-native-gesture-handler';
+
 
 export default class ProfilePage extends Component {
   static contextType = CountContext;
@@ -16,29 +18,29 @@ export default class ProfilePage extends Component {
 
   render() {
     const { dailyCount, monthlyCount } = this.context;
-    const { exerciseTimes } = this.context;
     const fill = 'rgb(134, 65, 244)';
     const contentInset = { top: 20, bottom: 20 };
-    const chartConfig = {
-      backgroundGradientFrom: "#1E2923",
-      backgroundGradientFromOpacity: 0,
-      backgroundGradientTo: "#08130D",
-      backgroundGradientToOpacity: 0.5,
-      color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
-      strokeWidth: 2, // optional, default 3
-      barPercentage: 0.5
-    };
     const data = {
-      labels: ['呼吸界面', '音乐界面'],
+      labels: ['Breathing', 'Mindfulness', 'Music'],
       datasets: [
         {
-          data: [10, 15], //这些数据应该是来自你的状态或者 context 的
+          data: [
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+          ],
         },
       ],
     };
+    const piechart_data = [
+      { name: 'Breathing', population: 50, color: '#C70039', legendFontColor: '#7F7F7F', legendFontSize: 15 },
+      { name: 'Mindfulness', population: 30, color: '#FF5733', legendFontColor: '#7F7F7F', legendFontSize: 15 },
+      { name: 'Music', population: 20, color: '#FFC300', legendFontColor: '#7F7F7F', legendFontSize: 15 },
+    ];
     
     return (
-      <View style={styles.container}>
+      <ScrollView>
+        <><View style={styles.container}>
         {/* avatar section */}
         <View style={styles.avatarContainer}>
           <Avatar rounded size="large" source={myAvatar} />
@@ -64,27 +66,81 @@ export default class ProfilePage extends Component {
         </View>
 
         {/* buttons */}
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('AllExercises', { screen: 'Auth', params: { screen: 'Login' }})}>
+        {/* <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('AllExercises', { screen: 'Auth', params: { screen: 'Login' } })}>
             <Text style={styles.buttonText}>Log in</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('AllExercises', { screen: 'Auth', params: { screen: 'Register' }})}>
+          <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('AllExercises', { screen: 'Auth', params: { screen: 'Register' } })}>
             <Text style={styles.buttonText}>Register</Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
 
         {/* bar chart */}
-        <View style={styles.chartContainer}>
+        <View style={styles.buttonContainer}>
           <BarChart
-            style={{ height: 200 }}
-            data={data}
-            svg={{ fill: 'rgba(134, 65, 244)' }}
-            contentInset={{ top: 30, bottom: 30 }}
-            >       
-            <Grid />
-          </BarChart>
-        </View>  
-      </View>
+          data={data}
+          width={Dimensions.get('window').width - 30}
+          height={220}
+          style={{alignSelf: 'center', borderRadius: 10}}
+          yAxisLabel=''
+          chartConfig={{
+            backgroundGradientFrom: "#FFFFFF",
+            backgroundGradientFromOpacity: 1,
+            // Previous: #BDD7E7
+            backgroundGradientTo: "#FFFFFF",
+            backgroundGradientToOpacity: 0.8,
+            color: (opacity = 1) => `rgba(0, 123, 167, ${opacity})`,
+            strokeWidth: 2, // optional, default 3
+            barPercentage: 0.5,
+            useShadowColorFromDataset: false // optional
+          }}  
+        />
+         
+        
+        </View>
+        <View style={styles.chartContainer}>
+          <LineChart
+          data={data}
+          width={Dimensions.get('window').width - 30}
+          height={220}
+          style={{alignSelf: 'center', borderRadius: 10}}
+          yAxisLabel=''
+          chartConfig={{
+            backgroundGradientFrom: "#FFFFFF",
+            backgroundGradientFromOpacity: 1,
+            // Previous: #BDD7E7
+            backgroundGradientTo: "#FFFFFF",
+            backgroundGradientToOpacity: 0.8,
+            color: (opacity = 1) => `rgba(0, 123, 167, ${opacity})`,
+            strokeWidth: 2, // optional, default 3
+            barPercentage: 0.5,
+            useShadowColorFromDataset: false // optional
+          }}  
+        />
+        <View style={styles.chartContainer}>
+        <PieChart
+          data={piechart_data}
+          width={Dimensions.get('window').width - 30}
+          height={250}
+          chartConfig={{
+            backgroundColor: '#FAFAFA',
+            backgroundGradientFrom: '#FAFAFA',
+            backgroundGradientTo: '#FAFAFA',
+            color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+            strokeWidth: 2,
+          }}
+          accessor={"population"}
+          backgroundColor={"transparent"}
+          paddingLeft={"15"}
+          center={[10, 50]}
+          absolute
+        />      
+        </View>   
+        </View>
+      </View>    
+    </>
+      </ScrollView>
+      
     );
   }
 }
@@ -97,7 +153,7 @@ const styles = StyleSheet.create({
   },
   avatarContainer: {
     alignItems: 'center',
-    marginTop: 30,
+    marginTop: 65,
   },
   username: {
     fontSize: 24,
@@ -131,7 +187,8 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginVertical: 20,
+    marginVertical: 15,
+    backgroundColor: '#FFFFFF',
   },
   button: {
     backgroundColor: '#3b5998',
