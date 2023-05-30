@@ -1,21 +1,46 @@
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity,ImageBackground } from 'react-native';
+import React, { Component} from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import { Avatar } from '@rneui/base';
 import myAvatar from '../assets/Images/cat.jpg';
 import CountContext from '../screens/CountContext';
 import LoginScreen from '../auth/LoginScreen';
 import RegisterScreen from '../auth/RegisterScreen';
+import { Grid,YAxis} from 'react-native-svg-charts';
+import ExerciseTimeContext from './ExerciseCountContext';
+import { BarChart, LineChart,PieChart,ProgressChart,ContributionGraph,StackedBarChart} from 'react-native-chart-kit';
+import { opacity } from 'react-native-redash';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 export default class ProfilePage extends Component {
   static contextType = CountContext;
+  static contextType = ExerciseTimeContext;
 
   render() {
     const { dailyCount, monthlyCount } = this.context;
+    const fill = 'rgb(134, 65, 244)';
+    const contentInset = { top: 20, bottom: 20 };
+    const data = {
+      labels: ['Breathing', 'Mindfulness', 'Music'],
+      datasets: [
+        {
+          data: [
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+          ],
+        },
+      ],
+    };
+    const piechart_data = [
+      { name: 'Breathing', population: 50, color: '#C70039', legendFontColor: '#7F7F7F', legendFontSize: 15 },
+      { name: 'Mindfulness', population: 30, color: '#FF5733', legendFontColor: '#7F7F7F', legendFontSize: 15 },
+      { name: 'Music', population: 20, color: '#FFC300', legendFontColor: '#7F7F7F', legendFontSize: 15 },
+    ];
+    
     return (
-      
-      <View style={styles.container}>
-      
+      <ScrollView>
+        <><View style={styles.container}>
         {/* avatar section */}
         <View style={styles.avatarContainer}>
           <Avatar rounded size="large" source={myAvatar} />
@@ -41,16 +66,81 @@ export default class ProfilePage extends Component {
         </View>
 
         {/* buttons */}
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('AllExercises', { screen: 'Auth', params: { screen: 'Login' }})}>
+        {/* <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('AllExercises', { screen: 'Auth', params: { screen: 'Login' } })}>
             <Text style={styles.buttonText}>Log in</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('AllExercises', { screen: 'Auth', params: { screen: 'Register' }})}>
+          <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('AllExercises', { screen: 'Auth', params: { screen: 'Register' } })}>
             <Text style={styles.buttonText}>Register</Text>
           </TouchableOpacity>
+        </View> */}
+
+        {/* bar chart */}
+        <View style={styles.buttonContainer}>
+          <BarChart
+          data={data}
+          width={Dimensions.get('window').width - 30}
+          height={220}
+          style={{alignSelf: 'center', borderRadius: 10}}
+          yAxisLabel=''
+          chartConfig={{
+            backgroundGradientFrom: "#FFFFFF",
+            backgroundGradientFromOpacity: 1,
+            // Previous: #BDD7E7
+            backgroundGradientTo: "#FFFFFF",
+            backgroundGradientToOpacity: 0.8,
+            color: (opacity = 1) => `rgba(0, 123, 167, ${opacity})`,
+            strokeWidth: 2, // optional, default 3
+            barPercentage: 0.5,
+            useShadowColorFromDataset: false // optional
+          }}  
+        />
+         
+        
         </View>
+        <View style={styles.chartContainer}>
+          <LineChart
+          data={data}
+          width={Dimensions.get('window').width - 30}
+          height={220}
+          style={{alignSelf: 'center', borderRadius: 10}}
+          yAxisLabel=''
+          chartConfig={{
+            backgroundGradientFrom: "#FFFFFF",
+            backgroundGradientFromOpacity: 1,
+            // Previous: #BDD7E7
+            backgroundGradientTo: "#FFFFFF",
+            backgroundGradientToOpacity: 0.8,
+            color: (opacity = 1) => `rgba(0, 123, 167, ${opacity})`,
+            strokeWidth: 2, // optional, default 3
+            barPercentage: 0.5,
+            useShadowColorFromDataset: false // optional
+          }}  
+        />
+        <View style={styles.chartContainer}>
+        <PieChart
+          data={piechart_data}
+          width={Dimensions.get('window').width - 30}
+          height={250}
+          chartConfig={{
+            backgroundColor: '#FAFAFA',
+            backgroundGradientFrom: '#FAFAFA',
+            backgroundGradientTo: '#FAFAFA',
+            color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+            strokeWidth: 2,
+          }}
+          accessor={"population"}
+          backgroundColor={"transparent"}
+          paddingLeft={"15"}
+          center={[10, 50]}
+          absolute
+        />      
+        </View>   
+        </View>
+      </View>    
+    </>
+      </ScrollView>
       
-      </View>
     );
   }
 }
@@ -63,7 +153,7 @@ const styles = StyleSheet.create({
   },
   avatarContainer: {
     alignItems: 'center',
-    marginTop: 30,
+    marginTop: 65,
   },
   username: {
     fontSize: 24,
@@ -97,7 +187,8 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginVertical: 20,
+    marginVertical: 15,
+    backgroundColor: '#FFFFFF',
   },
   button: {
     backgroundColor: '#3b5998',
@@ -123,5 +214,9 @@ const styles = StyleSheet.create({
   countText: {
     fontSize: 18,
     color: '#333',
+  },
+  //barchart
+  chartContainer: {
+    marginVertical: 10,
   },
 });
