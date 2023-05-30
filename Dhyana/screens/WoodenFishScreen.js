@@ -90,6 +90,11 @@ const WoodenFishScreen = () => {
           <Text>Today's Merit：{count}</Text>
       </View>
       <ImageBackground source={require('../assets/Images/fish.jpeg')} resizeMode="cover" style={styles.image}>
+        <TouchableOpacity style={styles.hint}>
+            <Text style={styles.font}>
+              Tap Me
+            </Text>
+        </TouchableOpacity>
         <Animated.View style={[styles.button, {transform: [{scale}]}]}>
           
           <TouchableOpacity
@@ -140,5 +145,14 @@ const styles = StyleSheet.create({
   countContainer:{
     alignItems:'center',
     
+  },
+  hint:{
+    color:'#fff',
+    alignItems:'center',
+    justifyContent:'center',
+    fontSize:50
+  },
+  font:{
+    fontSize:45
   }
 })

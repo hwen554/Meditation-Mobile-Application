@@ -1,5 +1,6 @@
 import { Text, View,StyleSheet, Dimensions,Animated,ImageBackground } from 'react-native'
 import React, {useRef,useState} from 'react'
+
 import { StatusBar } from 'expo-status-bar'
 import {
   responsiveHeight,

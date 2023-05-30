@@ -46,8 +46,7 @@ const CareView: React.FC<Props> = ({ animationController }) => {
         Care
       </Animated.Text>
       <Text style={styles.subtitle}>
-        Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod
-        tempor incididunt ut labore
+      To think in terms of either pessimism or optimism oversimplifies the truth. The problem is to see reality as it is.
       </Text>
     </Animated.View>
   );

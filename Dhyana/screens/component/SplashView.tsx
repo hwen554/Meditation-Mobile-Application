@@ -47,8 +47,7 @@ const SplashView: React.FC<Props> = ({ onNextClick, animationController }) => {
         </View>
         <Text style={styles.title}>Clearhead</Text>
         <Text style={styles.subtitle}>
-          Lorem ipsum dolor sit amet,consectetur{'\n'}adipiscing elit,sed do
-          eiusmod tempor{'\n'}incididunt ut labore
+        Everything that has a beginning has an ending. Make your peace with that and all will be well.
         </Text>
       </ScrollView>
 

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity,ImageBackground } from 'react-native';
 import { Avatar } from '@rneui/base';
 import myAvatar from '../assets/Images/cat.jpg';
 import CountContext from '../screens/CountContext';
 import LoginScreen from '../auth/LoginScreen';
 import RegisterScreen from '../auth/RegisterScreen';
+
 
 export default class ProfilePage extends Component {
   static contextType = CountContext;
@@ -12,7 +13,9 @@ export default class ProfilePage extends Component {
   render() {
     const { dailyCount, monthlyCount } = this.context;
     return (
+      
       <View style={styles.container}>
+      
         {/* avatar section */}
         <View style={styles.avatarContainer}>
           <Avatar rounded size="large" source={myAvatar} />
@@ -46,6 +49,7 @@ export default class ProfilePage extends Component {
             <Text style={styles.buttonText}>Register</Text>
           </TouchableOpacity>
         </View>
+      
       </View>
     );
   }

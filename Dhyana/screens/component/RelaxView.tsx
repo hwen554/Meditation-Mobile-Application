@@ -44,8 +44,7 @@ const RelaxView: React.FC<Props> = ({ animationController }) => {
       <Animated.Text
         style={[styles.subtitle, { transform: [{ translateX: textAnim }] }]}
       >
-        Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod
-        tempor incididunt ut labore
+        When we get too caught up in the busyness of the world, we lose connection with one another – and ourselves.
       </Animated.Text>
       <Animated.Image
         style={[styles.image, { transform: [{ translateX: imageAnim }] }]}

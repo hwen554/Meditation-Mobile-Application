@@ -15,7 +15,8 @@ import {
   MusicScreen,
   MusicDetailsScreen,
   WelcomeScreen,
-  OnBoard
+  OnBoard,
+  
 } from '../screens';
 import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
 import {COLORS} from '../constants';
@@ -101,7 +102,7 @@ const BottomTabNavigator = () => {
         tabBarIcon: ({focused}) => {
           const icons = {
             Schedule: 'home',
-            AllExercises: 'search',
+            AllExercises: 'image',
             Settings: 'user',
           };
           return (
@@ -118,7 +119,7 @@ const BottomTabNavigator = () => {
         tabBarLabel: ({focused}) => {
           const labels = {
             Schedule: 'Main',
-            AllExercises: 'Search',
+            AllExercises: 'Dhyana',
             Settings: 'User',
           };
 

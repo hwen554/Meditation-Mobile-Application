@@ -39,9 +39,11 @@ const MusicScreen = ({navigation}) => {
 
   const Card = ({place}) => {
     return (
+      
       <TouchableOpacity
         activeOpacity={0.8}
         onPress={() => navigation.navigate('MusicDetailsScreen', place)}>
+      
         <ImageBackground style={style.cardImage} source={place.artwork}>
           <Text
             style={{
@@ -71,7 +73,9 @@ const MusicScreen = ({navigation}) => {
             </View>
           </View>
         </ImageBackground>
+        
       </TouchableOpacity>
+      
     );
   };
 

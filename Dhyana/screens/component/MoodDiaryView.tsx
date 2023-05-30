@@ -41,8 +41,7 @@ const MoodDiaryView: React.FC<Props> = ({ animationController }) => {
       <Animated.Text
         style={[styles.subtitle, { transform: [{ translateX: textAnim }] }]}
       >
-        Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod
-        tempor incididunt ut labore
+        The feeling that any task is a nuisance will soon disappear if it is done in mindfulness.
       </Animated.Text>
       <Animated.Image
         style={[styles.image, { transform: [{ translateX: imageAnim }] }]}

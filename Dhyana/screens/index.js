@@ -11,6 +11,7 @@ import MusicScreen from './MusicScreen';
 import MusicDetailsScreen from './MusicDetailsScreen';
 import WelcomeScreen from './WelcomeScreen';
 import OnBoard from './OnBoard';
+import Home from './Home'
 export {
   ExerciseHomeScreen,
   ExerciseDetailsScreen,
@@ -24,5 +25,6 @@ export {
   MusicScreen,
   MusicDetailsScreen,
   WelcomeScreen,
-  OnBoard
+  OnBoard,
+  Home,
 };

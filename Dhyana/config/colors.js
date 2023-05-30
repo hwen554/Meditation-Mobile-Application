@@ -7,6 +7,7 @@ export default {
   grey: '#dddedd',
   red: 'red',
   orange: '#f5a623',
+  heading: '#3F414E',
   };
 
 

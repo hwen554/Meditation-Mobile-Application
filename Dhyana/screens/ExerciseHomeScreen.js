@@ -203,7 +203,7 @@ const ExerciseHomeScreen = ({navigation}) => {
 
   return (
     <SafeAreaView style={{flex: 1, position: 'relative'}}>
-    <ImageBackground source={require('../assets/Images/searchbg.png')} resizeMode="cover" style={styles.image}>
+    <ImageBackground source={require('../assets/Images/mainbg.jpeg')} resizeMode="cover" style={styles.image}>
 
     
       <StatusBar
@@ -261,8 +261,8 @@ const ExerciseHomeScreen = ({navigation}) => {
           </View>
         </View>
 
-        <Text style={{fontSize: 30, lineHeight: 45}}>
-          Good Morning Gavin
+        <Text style={{fontSize: 30, lineHeight: 45, marginTop:80, color:'#e1e8e9'}}>
+          Hello Stranger!
         </Text>
         {/* <View
           style={{
