@@ -12,7 +12,7 @@ const Session3Screen = () => {
        <Video
         ref={video}
         style={styles.video}
-        source={require('../assets/reverseclock.mp4')}
+        source={require('../assets/water2.mp4')}
         useNativeControls
         resizeMode="cover"
         isLooping={true}
