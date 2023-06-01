@@ -4,7 +4,7 @@ const AppImages = {
     relax_image: require('../assets/Images/relax.png'),
     introduction_image:require('../assets/Images/intro.png'),
     welcome: require('../assets/Images/welcome.png'),
-    clear_image:require('../assets/Images/clearhead.jpeg')
+    clear_image:require('../assets/Images/newon.png')
 }
 
 export { AppImages };

@@ -36,29 +36,29 @@ const StackNavigator = () => {
 
       <Stack.Screen
         name="ExerciseDetailsScreen"
-        component={ExerciseDetailsScreen}
+        component={ExerciseDetailsScreen} options={{headerShown:false}}
       />
       <Stack.Screen 
         name="ScheduleScreen" 
         component={ScheduleScreen} options={{ headerShown: false }}/>
       <Stack.Screen
         name="MeditationScreen"
-        component={MeditationScreen}/>
+        component={MeditationScreen} options={{headerShown:false}}/>
       <Stack.Screen
         name="Session1Screen"
-        component={Session1Screen}/>
+        component={Session1Screen} options={{headerShown:false}}/>
       <Stack.Screen
         name="Session2Screen"
-        component={Session2Screen}/>
+        component={Session2Screen} options={{headerShown:false}}/>
       <Stack.Screen
         name="Session3Screen"
-        component={Session3Screen}/>
+        component={Session3Screen} options={{headerShown:false}}/>
       <Stack.Screen
         name="WoodenFishScreen"
-        component={WoodenFishScreen}/>
+        component={WoodenFishScreen} options={{headerShown:false}}/>
       <Stack.Screen
         name="MusicDetailsScreen"
-        component={MusicDetailsScreen}/>
+        component={MusicDetailsScreen} options={{headerShown:false}}/>
       <Stack.Screen
         name="MusicScreen"
         component={MusicScreen} options={{headerShown:false}}/>

@@ -99,7 +99,7 @@ const ExerciseDetailsScreen = () => {
   });
   return (
     <View style={styles.container}>
-    <ImageBackground source={require('../assets/Images/mainbg.jpeg')} resizeMode="cover" style={styles.image}>
+    <ImageBackground source={require('../assets/Images/newmed.jpeg')} resizeMode="cover" style={styles.image}>
 
     
       <Animated.View
@@ -150,7 +150,7 @@ const ExerciseDetailsScreen = () => {
             key={item}
             style={{
               opacity: 0.1,
-              backgroundColor: "purple",
+              backgroundColor: "#DCFCFF",
               width: circleWidth,
               height: circleWidth,
               

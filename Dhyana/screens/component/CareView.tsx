@@ -37,7 +37,7 @@ const CareView: React.FC<Props> = ({ animationController }) => {
     >
       <Animated.Image
         style={[styles.image, { transform: [{ translateX: imageAnim }] }]}
-        source={AppImages.care_image}
+        source={AppImages.clear_image}
       />
       <Animated.Text
         style={[styles.title, { transform: [{ translateX: careAnim }] }]}
