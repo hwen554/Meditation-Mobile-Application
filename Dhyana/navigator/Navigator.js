@@ -12,40 +12,81 @@ import {
   Session2Screen,
   Session3Screen,
   WoodenFishScreen,
+  MusicScreen,
+  MusicDetailsScreen,
+  WelcomeScreen,
+  OnBoard,
+  
 } from '../screens';
 import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
 import {COLORS} from '../constants';
+import LoginScreen from '../auth/LoginScreen';
+import RegisterScreen from '../auth/RegisterScreen';
 
 const Stack = createStackNavigator();
 const StackNavigator = () => {
   return (
-    <Stack.Navigator initialRouteName={'ExercisesHomeScreen'} >
+    <Stack.Navigator initialRouteName={'OnBoard'} >
+      <Stack.Screen
+        name="OnBoard"
+        component={OnBoard}
+        options={{headerShown:false}}
+      />
       <Stack.Screen name="ExercisesHomeScreen" component={ExerciseHomeScreen} options={{ headerShown: false }} />
+
       <Stack.Screen
         name="ExerciseDetailsScreen"
-        component={ExerciseDetailsScreen}
+        component={ExerciseDetailsScreen} options={{headerShown:false}}
       />
       <Stack.Screen 
         name="ScheduleScreen" 
-        component={ScheduleScreen}/>
+        component={ScheduleScreen} options={{ headerShown: false }}/>
       <Stack.Screen
         name="MeditationScreen"
-        component={MeditationScreen}/>
+        component={MeditationScreen} options={{headerShown:false}}/>
       <Stack.Screen
         name="Session1Screen"
-        component={Session1Screen}/>
+        component={Session1Screen} options={{headerShown:false}}/>
       <Stack.Screen
         name="Session2Screen"
-        component={Session2Screen}/>
+        component={Session2Screen} options={{headerShown:false}}/>
       <Stack.Screen
         name="Session3Screen"
-        component={Session3Screen}/>
+        component={Session3Screen} options={{headerShown:false}}/>
       <Stack.Screen
         name="WoodenFishScreen"
-        component={WoodenFishScreen}/>
+        component={WoodenFishScreen} options={{headerShown:false}}/>
+      <Stack.Screen
+        name="MusicDetailsScreen"
+        component={MusicDetailsScreen} options={{headerShown:false}}/>
+      <Stack.Screen
+        name="MusicScreen"
+        component={MusicScreen} options={{headerShown:false}}/>
+      <Stack.Screen name="Auth" component={AuthStackNavigator} options={{ headerShown: false }}/>
+      <Stack.Screen name="BottomTabNavigator" component={BottomTabNavigator} />
     </Stack.Navigator>
   );
 };
+
+const AuthStack = createStackNavigator();
+const AuthStackNavigator = () => {
+  return (
+    <AuthStack.Navigator>
+      <AuthStack.Screen
+        name="Login"
+        component={LoginScreen}
+        options={{title: 'Login'}}
+      />
+      <AuthStack.Screen
+        name="Register"
+        component={RegisterScreen}
+        options={{title: 'Register'}}
+      />
+    </AuthStack.Navigator>
+  );
+};
+
+
 
 const Tab = createBottomTabNavigator();
 const BottomTabNavigator = () => {
@@ -60,9 +101,9 @@ const BottomTabNavigator = () => {
       screenOptions={({route}) => ({
         tabBarIcon: ({focused}) => {
           const icons = {
-            Schedule: 'calendar-alt',
-            AllExercises: 'dumbbell',
-            Settings: 'cog',
+            Schedule: 'home',
+            AllExercises: 'image',
+            Settings: 'user',
           };
           return (
             <FontAwesome5Icons
@@ -78,8 +119,8 @@ const BottomTabNavigator = () => {
         tabBarLabel: ({focused}) => {
           const labels = {
             Schedule: 'Main',
-            AllExercises: 'Search',
-            Settings: 'Profilo',
+            AllExercises: 'Dhyana',
+            Settings: 'User',
           };
 
           return (
@@ -95,9 +136,9 @@ const BottomTabNavigator = () => {
           );
         },
       })}>
-      <Tab.Screen name="Schedule" component={ScheduleScreen} />
+      <Tab.Screen name="Schedule" component={ExerciseHomeScreen} options={{headerShown:false}} />
       <Tab.Screen name="AllExercises" component={StackNavigator} options={{headerShown:false}} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
+      <Tab.Screen name="Settings" component={SettingsScreen} options={{headerShown:false}} />
     </Tab.Navigator>
   );
 };

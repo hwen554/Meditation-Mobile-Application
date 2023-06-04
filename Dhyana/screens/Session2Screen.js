@@ -14,7 +14,7 @@ const Session2Screen = () => {
         style={styles.video}
         source={require('../assets/peace.mp4')}
         useNativeControls
-        resizeMode="contain"
+        resizeMode="cover"
         isLooping={true}
         onPlaybackStatusUpdate={setStatus}
       />
