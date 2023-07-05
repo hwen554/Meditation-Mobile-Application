@@ -11,7 +11,7 @@ Dhyana is a reinforcement meditation mobile application based on React Native.Dh
 The supported interface docs currently include:
 [React Native0.71](http://blog.sina.com.cn/endlch "Title")
 
-* [React Native](https://example.com): Version 0.71 。
+* [React Native](https://example.com): Version 0.71 
 * [React](https://react.dev/reference/react): Version 18.2.0 
 * [Firebase](https://firebase.google.com/docs): Version 9.19.1
 * [TypeScript](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html): Version 4.9.4
