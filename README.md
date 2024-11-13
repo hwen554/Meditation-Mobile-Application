@@ -1,4 +1,4 @@
-![image](https://s2.loli.net/2023/06/05/kxNSAK3I5weuWTF.jpg)
+![image](https://s2.loli.net/2023/06/05/kxNSAK3I5weuWTF.jpg).
 
 * * *
 ![](https://img.shields.io/badge/Dhyana-1.0.0-orange)
